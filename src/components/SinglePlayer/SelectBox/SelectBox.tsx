@@ -29,7 +29,7 @@ export default function SelectBox() {
   return (
     <Card>
       <Title>
-        <h1>Select who you want to be:</h1> <Divider />
+        <h1>Select who you want to be</h1> <Divider />
       </Title>
       <Boxes>
         <XButton
