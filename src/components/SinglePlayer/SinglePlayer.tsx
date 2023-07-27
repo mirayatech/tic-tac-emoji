@@ -1,4 +1,4 @@
-import { PlayerBoard, SelectBox } from ".";
+import { PlayerBoard, Result, SelectBox } from ".";
 import { useGameStore } from "../../util/use-game-store";
 import { Container } from "./Styles";
 
@@ -13,6 +13,7 @@ export default function SinglePlayer() {
     >
       {gameNavigate === "select-box" && <SelectBox />}
       {gameNavigate === "single-player-board" && <PlayerBoard />}
+      {gameNavigate === "single-player-result" && <Result />}
     </Container>
   );
 }
