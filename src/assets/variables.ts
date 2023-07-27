@@ -1,5 +1,7 @@
 export const colors = {
   red: "#EB1750",
+  redShadow: "#eb175081",
+  yellowShadow: "#ffcf339e",
   yellow: "#FFD033",
   green: "#27D075",
   greenBorder: "#199e57",
@@ -12,4 +14,5 @@ export const colors = {
   middlePurple: "#342267",
   lightPurple: "#6748C4",
   linkColor: "#8f6fed",
+  shadow: `2px 5px 5px #22222238`,
 };
