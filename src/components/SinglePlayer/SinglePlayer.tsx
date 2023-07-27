@@ -1,7 +1,6 @@
-import { Container } from "./Styles";
-
-import { SelectBox } from ".";
+import { PlayerBoard, SelectBox } from ".";
 import { useGameStore } from "../../util/use-game-store";
+import { Container } from "./Styles";
 
 export default function SinglePlayer() {
   const { gameNavigate } = useGameStore();
@@ -13,6 +12,7 @@ export default function SinglePlayer() {
       exit={{ opacity: 0 }}
     >
       {gameNavigate === "select-box" && <SelectBox />}
+      {gameNavigate === "single-player-board" && <PlayerBoard />}
     </Container>
   );
 }
