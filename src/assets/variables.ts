@@ -1,0 +1,15 @@
+export const colors = {
+  red: "#EB1750",
+  yellow: "#FFD033",
+  green: "#27D075",
+  greenBorder: "#199e57",
+  blue: "#2092ED",
+  blueBorder: "#146db5",
+  white: "#fff",
+  grey: "#E5E7E8",
+  black: "#232229",
+  darkPurple: "#1F0F4E",
+  middlePurple: "#342267",
+  lightPurple: "#6748C4",
+  linkColor: "#8f6fed",
+};
