@@ -1,3 +1,4 @@
+import toast from "react-hot-toast";
 import LOGO from "../../assets/images/full-logo.svg";
 import { useGameStore } from "../../util/use-game-store";
 
@@ -26,7 +27,10 @@ export default function Start() {
           <Button onClick={() => setNavigate("single-player")}>
             Single Player
           </Button>
-          <Button onClick={() => setNavigate("multi-player")} isMulti={true}>
+          <Button
+            onClick={() => toast("Coming Soon!", { icon: "⏳" })}
+            isMulti={true}
+          >
             Multi Player
           </Button>
         </ButtonsContainer>

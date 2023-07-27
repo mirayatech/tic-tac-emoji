@@ -3,11 +3,13 @@ import { Suspense } from "react";
 
 import { SinglePlayer, Start } from "./components";
 import { useGameStore } from "./util/use-game-store";
+import { Toaster } from "react-hot-toast";
 
 function App() {
   const { navigate } = useGameStore();
   return (
     <AnimatePresence>
+      <Toaster />
       {navigate === "start" && (
         <motion.div
           initial={{ opacity: 0 }}
