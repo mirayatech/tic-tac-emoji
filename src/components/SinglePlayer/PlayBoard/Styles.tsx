@@ -3,15 +3,11 @@ import styled from "styled-components";
 import { colors } from "../../../assets/variables";
 
 export const Container = styled(motion.div)`
-  display: flex;
-  justify-content: center;
-  flex-direction: column;
   width: 100%;
   max-width: 500px;
-  height: 100vh;
 `;
 
-export const PlayArea = styled(motion.div)`
+export const PlayArea = styled.div`
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   grid-gap: 10px;
@@ -24,13 +20,23 @@ export const PlayArea = styled(motion.div)`
 
 const BoxBase = styled(motion.section)`
   border: none;
-  height: 150px;
-  width: 150px;
+  height: 90px;
+  width: 90px;
   display: flex;
   align-items: center;
   justify-content: center;
   cursor: pointer;
   border-radius: 10px;
+
+  @media screen and (min-width: 390px) {
+    height: 110px;
+    width: 110px;
+  }
+
+  @media screen and (min-width: 530px) {
+    height: 150px;
+    width: 150px;
+  }
 `;
 
 export const Box = styled(BoxBase)`
@@ -57,7 +63,6 @@ export const OPlayer = styled(PlayerIconBase)`
 
 export const XPlayer = styled(PlayerIconBase)`
   svg {
-    font-size: 100px;
     color: ${colors.red};
   }
 `;
@@ -70,17 +75,22 @@ export const ResultBox = styled.div`
 `;
 
 export const PlayerTurnBanner = styled.div`
+  width: 100%;
   position: relative;
   display: flex;
   align-items: center;
   justify-content: space-between;
   background-color: ${colors.lightPurple};
-  padding: 20px;
+  padding: 10px;
   border: 10px solid ${colors.lightPurple};
   border-radius: 10px;
   overflow: hidden;
   margin-bottom: 20px;
   box-shadow: ${colors.shadow};
+
+  @media screen and (min-width: 390px) {
+    padding: 20px;
+  }
 `;
 
 export const Slider = styled.div`

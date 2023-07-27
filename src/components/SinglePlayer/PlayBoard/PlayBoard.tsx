@@ -42,14 +42,14 @@ export default function GameBoard() {
   };
 
   return (
-    <Container>
+    <Container
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      transition={{ duration: 0.5 }}
+      exit={{ opacity: 0 }}
+    >
       <PlayerBanner />
-      <PlayArea
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ duration: 0.5 }}
-        exit={{ opacity: 0 }}
-      >
+      <PlayArea>
         {board.map((box, index) => {
           const isWinningBox = winningIndices?.includes(index);
           const BoxComponent = isWinningBox ? WinningBox : Box;
