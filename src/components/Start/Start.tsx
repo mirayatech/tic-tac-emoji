@@ -28,7 +28,7 @@ export default function Start() {
             Single Player
           </Button>
           <Button
-            onClick={() => toast("Coming Soon!", { icon: "⏳" })}
+            onClick={() => toast("Coming Soon!", { icon: "🚧" })}
             isMulti={true}
           >
             Multi Player
