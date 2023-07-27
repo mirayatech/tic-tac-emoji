@@ -16,7 +16,9 @@ function App() {
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
         >
-          <Start />
+          <Suspense>
+            <Start />
+          </Suspense>
         </motion.div>
       )}
 
@@ -26,7 +28,7 @@ function App() {
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
         >
-          <Suspense fallback="loading...">
+          <Suspense>
             <SinglePlayer />
           </Suspense>
         </motion.div>
