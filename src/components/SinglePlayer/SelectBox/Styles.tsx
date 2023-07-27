@@ -109,7 +109,7 @@ export const ButtonsContainer = styled.div`
   gap: 15px;
   display: flex;
   justify-content: center;
-  flex-direction: column;
+  flex-direction: column-reverse;
 
   @media screen and (min-width: 500px) {
     flex-direction: row;
