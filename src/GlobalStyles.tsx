@@ -1,6 +1,5 @@
 import { createGlobalStyle } from "styled-components";
 
-import WALLPAPER from "./assets/images/wallpaper.png";
 import { colors } from "./assets/variables";
 
 export const GlobalStyle = createGlobalStyle`
@@ -26,10 +25,7 @@ body {
   overflow: hidden;
   line-height: 1.5;
   height: 100%;
-  background-image: url(${WALLPAPER});
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-position: center;   
+  background-image: linear-gradient(to top, #0A0224, #7A46C5);
   -webkit-font-smoothing: antialiased;
   color: ${colors.black};
 
