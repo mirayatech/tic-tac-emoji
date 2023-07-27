@@ -43,7 +43,7 @@ export const Button = styled.button<ButtonProps>`
   padding: 5px;
 
   border-radius: 10px;
-  box-shadow: 2px 5px 5px #22222238;
+  box-shadow: ${colors.shadow};
 
   &:hover {
     opacity: 0.9;
