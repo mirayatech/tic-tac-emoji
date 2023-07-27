@@ -22,12 +22,11 @@ html, body {
 
  
 body {
-  overflow: hidden;
-  line-height: 1.5;
-  height: 100%;
-  background-image: linear-gradient(to top, #0A0224, #7A46C5);
-  -webkit-font-smoothing: antialiased;
-  color: ${colors.black};
+overflow: hidden;
+line-height: 1.5;
+background-image: linear-gradient(to top, #0A0224, #7A46C5);
+-webkit-font-smoothing: antialiased;
+color: ${colors.black};
 
 }
 

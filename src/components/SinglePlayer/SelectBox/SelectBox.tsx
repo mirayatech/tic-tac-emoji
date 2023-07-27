@@ -47,7 +47,7 @@ export default function SelectBox() {
           onClick={handleClick.bind(null, "O")}
           aria-label="Player O"
           selected={selectedSign === "O"}
-          shadowColor={"#ffcf339e"}
+          shadowColor={colors.yellowShadow}
         >
           <Icon icon={CircleIcon} />
         </OButton>

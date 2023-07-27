@@ -10,7 +10,6 @@ type ButtonProps = {
 export const Container = styled(motion.div)`
   display: flex;
   flex-direction: column;
-  height: 100vh;
   padding: 10px 10px 0;
 `;
 

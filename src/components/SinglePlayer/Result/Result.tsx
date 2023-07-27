@@ -3,7 +3,7 @@ import DRAW from "../../../assets/images/draw.png";
 import LOSE from "../../../assets/images/lose.png";
 import { useGameStore } from "../../../util/use-game-store";
 import { Divider, ButtonsContainer, Button } from "../SelectBox/Styles";
-import { Container } from "../Styles";
+import { Container } from "./Styles";
 import { Card, Title, WinImage, DrawImage, LoseImage } from "./Styles";
 
 export default function Result() {

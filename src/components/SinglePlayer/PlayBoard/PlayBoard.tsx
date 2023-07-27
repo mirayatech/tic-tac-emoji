@@ -4,9 +4,15 @@ import { CircleIcon, MarkIcon } from "../../../assets/icon";
 import { colors } from "../../../assets/variables";
 import { checkWinner } from "../../../util/check-winner-service";
 import { useGameStore } from "../../../util/use-game-store";
-import { Container } from "../Styles";
 import PlayerBanner from "./PlayerBanner";
-import { PlayArea, WinningBox, XPlayer, OPlayer, Box } from "./Styles";
+import {
+  PlayArea,
+  WinningBox,
+  XPlayer,
+  OPlayer,
+  Box,
+  Container,
+} from "./Styles";
 export default function GameBoard() {
   const {
     playerTurn,

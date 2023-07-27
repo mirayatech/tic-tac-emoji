@@ -3,13 +3,11 @@ import { colors } from "../../../assets/variables";
 
 export const Card = styled.div`
   gap: 25px;
-  display: flex;
-  flex-direction: column;
   padding: 20px;
   border-radius: 10px;
   background-color: ${colors.white};
   box-shadow: ${colors.shadow};
-
+  margin: auto;
   @media screen and (min-width: 500px) {
     width: 400px;
   }

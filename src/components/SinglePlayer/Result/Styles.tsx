@@ -9,7 +9,6 @@ export const Container = styled(motion.div)`
   width: 100%;
   max-width: 500px;
   padding: 10px;
-  height: 100vh;
 `;
 
 export const Card = styled.div`

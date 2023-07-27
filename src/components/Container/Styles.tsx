@@ -1,11 +1,9 @@
 import { motion } from "framer-motion";
 import styled from "styled-components";
 
-export const Container = styled(motion.div)`
+export const StyledContainer = styled(motion.div)`
+  height: 100vh;
   display: flex;
   align-items: center;
   justify-content: center;
-  flex-direction: column;
-  padding: 10px;
-  height: 100vh;
 `;
