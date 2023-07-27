@@ -22,8 +22,9 @@ html, body {
 
  
 body {
-overflow: hidden;
+padding: 10px;
 line-height: 1.5;
+background-color: #0A0224;
 background-image: linear-gradient(to top, #0A0224, #7A46C5);
 -webkit-font-smoothing: antialiased;
 color: ${colors.black};
