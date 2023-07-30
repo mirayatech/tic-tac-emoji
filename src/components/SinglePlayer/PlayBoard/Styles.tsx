@@ -59,22 +59,16 @@ export const WinningBox = styled(BoxBase)`
   }
 `;
 
-const PlayerIconBase = styled.div`
-  svg {
-    font-size: 80px;
-  }
-`;
+const PlayerIconBase = styled.div``;
 
 export const OPlayer = styled(PlayerIconBase)`
-  svg {
-    color: ${colors.yellowSignColor};
-  }
+  color: ${colors.yellowSignColor};
+  font-size: 92px;
 `;
 
 export const XPlayer = styled(PlayerIconBase)`
-  svg {
-    color: ${colors.red};
-  }
+  color: ${colors.red};
+  font-size: 80px;
 `;
 
 // BANNER

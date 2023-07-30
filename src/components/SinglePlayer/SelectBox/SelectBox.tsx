@@ -1,4 +1,3 @@
-import { Icon } from "@iconify/react";
 import { useState } from "react";
 import { colors } from "../../../assets/variables";
 import { CircleIcon, MarkIcon } from "../../../assets/icon";
@@ -65,7 +64,7 @@ export default function SelectBox() {
             selected={selectedSign === "O"}
             shadowColor={colors.yellowShadow}
           >
-            <Icon icon={CircleIcon} />
+            <CircleIcon />
           </OButton>
         </Boxes>
         <ButtonsContainer>

@@ -1,5 +1,4 @@
 import { useEffect, useState } from "react";
-import { Icon } from "@iconify/react";
 import { CircleIcon, MarkIcon } from "../../../assets/icon";
 import { colors } from "../../../assets/variables";
 import { checkWinner } from "../../../util/check-winner-service";
@@ -71,7 +70,7 @@ export default function GameBoard() {
                     </XPlayer>
                   ) : (
                     <OPlayer>
-                      <Icon icon={CircleIcon} />
+                      <CircleIcon />
                     </OPlayer>
                   )}
                 </>
