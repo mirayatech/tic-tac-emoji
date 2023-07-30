@@ -1,6 +1,5 @@
 import { useState } from "react";
-import { CircleIcon } from "../../../assets/icon";
-import Xplayer from "../../../assets/images/x-player.png";
+import { CircleIcon, MarkIcon } from "../../../assets/icon";
 import { useGameStore } from "../../../util/use-game-store";
 import {
   Boxes,
@@ -52,7 +51,7 @@ export default function SelectBox() {
             aria-label="Player X"
             selected={selectedSign === "X"}
           >
-            <img src={Xplayer} alt="x-player" />
+            <MarkIcon />
           </XButton>
 
           <span>OR</span>
