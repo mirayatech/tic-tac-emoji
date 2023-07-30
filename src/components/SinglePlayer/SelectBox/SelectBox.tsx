@@ -1,9 +1,7 @@
 import { Icon } from "@iconify/react";
 import { useState } from "react";
 import { colors } from "../../../assets/variables";
-
 import { CircleIcon, MarkIcon } from "../../../assets/icon";
-
 import { useGameStore } from "../../../util/use-game-store";
 import {
   Boxes,
@@ -16,15 +14,26 @@ import {
   Wrapper,
   XButton,
 } from "./Styles";
+import { toast } from "react-hot-toast";
 
 export default function SelectBox() {
-  const { setPlayerSign, setGameNavigate, setNavigate, playerSign } =
-    useGameStore();
+  const { setPlayerSign, setGameNavigate, setNavigate } = useGameStore();
   const [selectedSign, setSelectedSign] = useState<"" | "X" | "O">("");
+  const [signSelected, setSignSelected] = useState(false);
 
   const handleClick = (sign: "X" | "O") => {
     setPlayerSign(sign);
     setSelectedSign(sign);
+    setSignSelected(true);
+  };
+
+  const handlePlayClick = () => {
+    if (!signSelected) {
+      return toast("Select a Player", {
+        icon: "🔮",
+      });
+    }
+    setGameNavigate("single-player-board");
   };
 
   return (
@@ -66,12 +75,7 @@ export default function SelectBox() {
           >
             Back
           </Button>
-          <Button
-            disabled={!playerSign}
-            onClick={() => setGameNavigate("single-player-board")}
-          >
-            Play
-          </Button>
+          <Button onClick={handlePlayClick}>Play</Button>
         </ButtonsContainer>
       </Card>
     </Wrapper>
