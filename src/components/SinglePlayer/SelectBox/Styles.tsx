@@ -35,12 +35,11 @@ export const Divider = styled.div`
 
 export const Boxes = styled.div`
   display: flex;
-  margin: 10px 0 20px;
   align-items: center;
   justify-content: space-evenly;
+  height: 130px;
 
   span {
-    padding: 0 10px;
     font-weight: bold;
     font-size: calc(18 / 16 * 1rem);
   }
@@ -105,6 +104,10 @@ export const Button = styled.button`
   &:active {
     transform: translateY(2px);
     border-bottom-width: 2px;
+  }
+
+  @media screen and (max-width: 500px) {
+    font-size: 1rem;
   }
 `;
 
