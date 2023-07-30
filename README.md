@@ -1,27 +1,43 @@
-# React + TypeScript + Vite
+## 👾 XO Rumble
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A tic-tac-toe game that offers both multiplayer and single-player modes.
 
-Currently, two official plugins are available:
+## 1️⃣ Single Player
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+In this mode, you will play against a computer bot.
 
-## Expanding the ESLint configuration
+- Click on the 'Single Player' button to play.
+- Choose a player, either "X" or "O".
+- The player who gets 3 in a row first wins - the winning row will glow green.
+- Whether it's a win, loss, or a draw, a modal displaying the result appears once the game is over. You'll then see two buttons:
+  - 'Replay' button to play again.
+  - 'Home' button to return to the main menu.
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+## 2️⃣ Multiplayer (coming soon)
 
-- Configure the top-level `parserOptions` property like this:
+In this mode, you can play with another person sitting next to you.
 
-```js
-   parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json'],
-    tsconfigRootDir: __dirname,
-   },
-```
+- The first player is automatically "X", and the second is "O".
+- The player who gets 3 in a row first wins; the winning row will glow green.
+- Whether it's a win, loss, or a draw, a modal displaying the result appears once the game is over. You'll then see two buttons:
+  - 'Replay' button to play again.
+  - 'Home' button to return to the main menu.
 
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+## 💡 Idea
+
+Project: https://github.com/mirayatech/Tic-Tac-Toe
+
+I've built a tic-tac-toe game before using HTML, CSS, and JavaScript, which was single-player only. I've always wanted to expand the project by adding multiplayer and making it more interactive. This is why I decided to create this project again, this time using React and TypeScript.
+
+## 🤔 How Can It Be Improved?
+
+The project could be improved by adding sound effects and background music. The transitions between pages could also be smoother.
+
+## 🚦 Running the Project
+
+To run the project in your local environment, follow these steps:
+
+1. Clone the repository to your local machine.
+2. Run `npm install` or `yarn` in the project directory to install the required dependencies.
+3. Run `npm run start` or `yarn start` to get the project started.
+4. Open http://localhost:5173 (or the address shown in your console) in your web browser to view the app.
