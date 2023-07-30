@@ -45,28 +45,28 @@ export const Boxes = styled.div`
   }
 `;
 
-const BaseButton = styled.button<{ selected?: boolean; shadowColor: string }>`
-  color: ${colors.white};
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border: none;
-  background-color: transparent;
+export const XButton = styled.div<{ selected?: boolean }>`
+  font-size: 80px;
+  color: ${colors.red};
   transition: transform 0.3s ease, box-shadow 0.3s ease;
   transform: ${(props) => (props.selected ? "scale(1.05)" : "none")};
   filter: ${(props) =>
-    props.selected ? `drop-shadow(0 5px 10px ${props.shadowColor})` : "none"};
+    props.selected ? `drop-shadow(0 5px 10px ${colors.redShadow})` : "none"};
   transition: transform 0.3s ease, filter 0.3s ease;
+
+  img {
+    width: 60px;
+  }
 `;
 
-export const XButton = styled(BaseButton)<{ selected?: boolean }>`
-  font-size: 80px;
-  color: ${colors.red};
-`;
-
-export const OButton = styled(BaseButton)<{ selected?: boolean }>`
+export const OButton = styled.div<{ selected?: boolean }>`
   font-size: 92px;
   color: ${colors.yellow};
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  transform: ${(props) => (props.selected ? "scale(1.05)" : "none")};
+  filter: ${(props) =>
+    props.selected ? `drop-shadow(0 5px 10px ${colors.yellowShadow})` : "none"};
+  transition: transform 0.3s ease, filter 0.3s ease;
 `;
 
 export const Button = styled.button`

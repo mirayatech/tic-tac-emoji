@@ -1,6 +1,6 @@
 import { useState } from "react";
-import { colors } from "../../../assets/variables";
 import { CircleIcon, MarkIcon } from "../../../assets/icon";
+import Xplayer from "../../../assets/images/x-player.png";
 import { useGameStore } from "../../../util/use-game-store";
 import {
   Boxes,
@@ -51,9 +51,8 @@ export default function SelectBox() {
             onClick={handleClick.bind(null, "X")}
             aria-label="Player X"
             selected={selectedSign === "X"}
-            shadowColor={colors.redShadow}
           >
-            <MarkIcon />
+            <img src={Xplayer} alt="x-player" />
           </XButton>
 
           <span>OR</span>
@@ -62,7 +61,6 @@ export default function SelectBox() {
             onClick={handleClick.bind(null, "O")}
             aria-label="Player O"
             selected={selectedSign === "O"}
-            shadowColor={colors.yellowShadow}
           >
             <CircleIcon />
           </OButton>
