@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { CircleIcon, MarkIcon } from "../../../assets/icon";
+import { CircleIcon } from "../../../assets/icon";
 import Xplayer from "../../../assets/images/x-player.png";
 import { useGameStore } from "../../../util/use-game-store";
 import {
