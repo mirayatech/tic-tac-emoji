@@ -1,10 +1,10 @@
 import { SpinnerIcon } from "../../assets/icon";
-import "./style.css";
+import { StyledSpinner } from "./Style";
 
 export function Spinner() {
   return (
-    <div role="alert" aria-label="loading" className="spinner">
+    <StyledSpinner role="alert" aria-label="loading">
       <SpinnerIcon className="spin" />
-    </div>
+    </StyledSpinner>
   );
 }

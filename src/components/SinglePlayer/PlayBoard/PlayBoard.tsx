@@ -5,14 +5,9 @@ import { colors } from "../../../assets/variables";
 import { checkWinner } from "../../../util/check-winner-service";
 import { useGameStore } from "../../../util/use-game-store";
 import PlayerBanner from "./PlayerBanner";
-import {
-  PlayArea,
-  WinningBox,
-  XPlayer,
-  OPlayer,
-  Box,
-  Container,
-} from "./Styles";
+import { PlayArea, WinningBox, XPlayer, OPlayer, Box } from "./Styles";
+import { motion } from "framer-motion";
+
 export default function GameBoard() {
   const {
     playerTurn,
@@ -48,7 +43,7 @@ export default function GameBoard() {
   };
 
   return (
-    <Container
+    <motion.div
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       transition={{ duration: 0.5 }}
@@ -59,12 +54,12 @@ export default function GameBoard() {
         {board.map((box, index) => {
           const isWinningBox = winningIndices?.includes(index);
           const BoxComponent = isWinningBox ? WinningBox : Box;
-          const boxColor = isWinningBox ? colors.green : colors.middlePurple;
+          const boxColor = isWinningBox ? colors.green : colors.lightPurple;
           return (
             <BoxComponent
               key={index}
               onClick={() => handleBoxClick(index)}
-              initial={{ backgroundColor: colors.middlePurple }}
+              initial={{ backgroundColor: colors.lightPurple }}
               animate={{ backgroundColor: boxColor }}
               transition={{ duration: 0.3 }}
             >
@@ -85,6 +80,6 @@ export default function GameBoard() {
           );
         })}
       </PlayArea>
-    </Container>
+    </motion.div>
   );
 }

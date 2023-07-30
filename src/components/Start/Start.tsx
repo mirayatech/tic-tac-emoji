@@ -3,38 +3,35 @@ import LOGO from "../../assets/images/full-logo.svg";
 import { useGameStore } from "../../util/use-game-store";
 
 import {
-  Container,
-  Top,
-  Logo,
-  ButtonsContainer,
   Button,
+  ButtonsContainer,
   Footer,
   FooterLink,
+  Logo,
+  Wrapper,
 } from "./Styles";
 
 export default function Start() {
   const { setNavigate } = useGameStore();
   return (
-    <Container
+    <Wrapper
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       transition={{ duration: 0.5 }}
       exit={{ opacity: 0 }}
     >
-      <Top>
-        <Logo src={LOGO} alt="XO Rumble Logo" />
-        <ButtonsContainer>
-          <Button onClick={() => setNavigate("single-player")}>
-            Single Player
-          </Button>
-          <Button
-            onClick={() => toast("Coming Soon!", { icon: "🚧" })}
-            isMulti={true}
-          >
-            Multi Player
-          </Button>
-        </ButtonsContainer>
-      </Top>
+      <Logo src={LOGO} alt="XO Rumble Logo" />
+      <ButtonsContainer>
+        <Button onClick={() => setNavigate("single-player")}>
+          Single Player
+        </Button>
+        <Button
+          onClick={() => toast("Coming Soon!", { icon: "🚧" })}
+          isMulti={true}
+        >
+          Multi Player
+        </Button>
+      </ButtonsContainer>
       <Footer>
         <FooterLink
           href="https://github.com/mirayatech/XO-Rumble"
@@ -43,6 +40,6 @@ export default function Start() {
           Created by Miraya
         </FooterLink>
       </Footer>
-    </Container>
+    </Wrapper>
   );
 }

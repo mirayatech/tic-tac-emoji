@@ -1,13 +1,19 @@
 import styled from "styled-components";
 import { colors } from "../../../assets/variables";
+import { motion } from "framer-motion";
+
+export const Wrapper = styled(motion.div)`
+  height: 95vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+`;
 
 export const Card = styled.div`
-  gap: 25px;
   padding: 20px;
   border-radius: 10px;
   background-color: ${colors.white};
   box-shadow: ${colors.shadow};
-  margin: auto;
   @media screen and (min-width: 500px) {
     width: 400px;
   }
@@ -29,13 +35,14 @@ export const Divider = styled.div`
 
 export const Boxes = styled.div`
   display: flex;
+  margin: 10px 0 20px;
   align-items: center;
   justify-content: space-evenly;
 
   span {
     padding: 0 10px;
     font-weight: bold;
-    font-size: 25px;
+    font-size: calc(18 / 16 * 1rem);
   }
 `;
 

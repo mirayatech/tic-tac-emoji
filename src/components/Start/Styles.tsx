@@ -7,24 +7,26 @@ type ButtonProps = {
   isMulti?: boolean;
 };
 
-export const Container = styled(motion.div)`
-  display: flex;
-  flex-direction: column;
-  padding: 10px 10px 0;
+export const Wrapper = styled(motion.div)`
+  height: 100%;
 `;
-
-export const Top = styled.div`
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-`;
-
 export const Logo = styled.img`
   width: 100%;
   max-width: 600px;
-  min-width: 350px;
+  margin: 0 auto;
   filter: drop-shadow(5px 5px 5px #22222245);
+`;
+
+export const ButtonsContainer = styled.div`
+  gap: 15px;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+
+  @media screen and (min-width: 500px) {
+    flex-direction: row;
+    justify-content: center;
+  }
 `;
 
 export const Button = styled.button<ButtonProps>`
@@ -35,7 +37,7 @@ export const Button = styled.button<ButtonProps>`
   border: none;
   font-size: 1.1rem;
 
-  width: 200px;
+  width: 160px;
   color: ${colors.white};
   font-size: 1.2rem;
   transition: all 200ms ease-in;
@@ -62,26 +64,21 @@ export const Button = styled.button<ButtonProps>`
     isMulti
       ? `4px solid ${colors.greenBorder}`
       : `4px solid ${colors.blueBorder}`};
-`;
 
-export const ButtonsContainer = styled.div`
-  gap: 15px;
-  display: flex;
-  justify-content: center;
-  flex-direction: column;
-
-  @media screen and (min-width: 500px) {
-    flex-direction: row;
+  @media screen and (max-width: 500px) {
+    font-size: 1.05rem;
+    width: 80%;
   }
 `;
 
 export const Footer = styled.footer`
-  margin: auto auto 0;
-  padding: 20px;
+  text-align: center;
+  padding: 20px 0;
+  margin-top: auto;
 `;
 
 export const FooterLink = styled.a`
-  color: ${colors.linkColor};
+  color: ${colors.grey};
 
   &:hover {
     text-decoration: underline;

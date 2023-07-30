@@ -1,48 +1,67 @@
 import { createGlobalStyle } from "styled-components";
-
 import { colors } from "./assets/variables";
 
-export const GlobalStyle = createGlobalStyle`
-  @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800;900&display=swap');
-
-
-*, *::before, *::after {
+export const GlobalStyle = createGlobalStyle`@import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,300;0,400;0,500;0,600;0,700;0,900;1,400&display=swap");
+ 
+*,
+*::before,
+*::after {
   box-sizing: border-box;
 }
 
- 
 * {
   margin: 0;
-  font-family: 'Poppins', sans-serif;
+  font-family: "Roboto", sans-serif;
 }
- 
-html, body {
+
+html,
+body {
   height: 100%;
 }
 
- 
 body {
-padding: 10px;
-line-height: 1.5;
-background-color: #0A0224;
-background-image: linear-gradient(to top, #0A0224, #7A46C5);
--webkit-font-smoothing: antialiased;
-color: ${colors.black};
-
+  height: 100%;
+  padding: 10px;
+  line-height: 1.5;
+  overflow: hidden;
+  background-color: ${colors.darkPurple};
+  background-image: linear-gradient(
+    to top,
+   ${colors.darkPurple},
+    ${colors.lightPurple}
+  );
+  -webkit-font-smoothing: antialiased;
+  display: flex;
+  flex-direction: column;
+  color: ${colors.black};
+ justify-content: center;
+    align-items: center;
+ 
 }
 
- 
-img, picture, video, canvas, svg {
+img,
+picture,
+video,
+canvas,
+svg {
   display: block;
   max-width: 100%;
 }
- 
-input, button, textarea, select {
+
+input,
+button,
+textarea,
+select {
   font: inherit;
 }
 
- 
-p, h1, h2, h3, h4, h5, h6 {
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
   overflow-wrap: break-word;
 }
 
@@ -53,5 +72,6 @@ button {
 a {
   text-decoration: none;
 }
+
 
 `;

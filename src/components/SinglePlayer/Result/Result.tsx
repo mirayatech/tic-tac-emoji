@@ -3,8 +3,8 @@ import DRAW from "../../../assets/images/draw.png";
 import LOSE from "../../../assets/images/lose.png";
 import { useGameStore } from "../../../util/use-game-store";
 import { Divider, ButtonsContainer, Button } from "../SelectBox/Styles";
-import { Container } from "./Styles";
 import { Card, Title, WinImage, DrawImage, LoseImage } from "./Styles";
+import { motion } from "framer-motion";
 
 export default function Result() {
   const { playerSign, winner, resetSinglePlayer, reset } = useGameStore();
@@ -21,7 +21,7 @@ export default function Result() {
       : "You lost the game";
 
   return (
-    <Container
+    <motion.div
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       transition={{ duration: 0.5 }}
@@ -47,6 +47,6 @@ export default function Result() {
           </ButtonsContainer>
         </Card>
       )}
-    </Container>
+    </motion.div>
   );
 }

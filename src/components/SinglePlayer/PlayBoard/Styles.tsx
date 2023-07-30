@@ -2,45 +2,55 @@ import { motion } from "framer-motion";
 import styled from "styled-components";
 import { colors } from "../../../assets/variables";
 
-export const Container = styled(motion.div)`
-  width: 100%;
-  max-width: 500px;
-`;
-
 export const PlayArea = styled.div`
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   grid-gap: 10px;
-  margin: 0 auto;
-  padding: 20px;
-  border-radius: 20px;
-  background-color: ${colors.lightPurple};
+  padding: 15px;
+  border-radius: 10px;
+  background-color: ${colors.white};
   box-shadow: ${colors.shadow};
+
+  @media screen and (max-width: 500px) {
+    padding: 10px;
+
+    border-radius: 5px;
+  }
 `;
 
 const BoxBase = styled(motion.section)`
   border: none;
-  height: 90px;
-  width: 90px;
+  height: 150px;
+  width: 150px;
   display: flex;
   align-items: center;
   justify-content: center;
   cursor: pointer;
-  border-radius: 10px;
+  border-radius: 5px;
 
-  @media screen and (min-width: 390px) {
-    height: 110px;
-    width: 110px;
+  @media screen and (max-width: 500px) {
+    height: 120px;
+    width: 120px;
   }
 
-  @media screen and (min-width: 530px) {
-    height: 150px;
-    width: 150px;
+  @media screen and (max-width: 420px) {
+    height: 100px;
+    width: 100px;
+  }
+
+  @media screen and (max-width: 420px) {
+    height: 90px;
+    width: 90px;
   }
 `;
 
 export const Box = styled(BoxBase)`
-  background-color: ${colors.middlePurple};
+  background-color: ${colors.lightPurple};
+  background-image: linear-gradient(
+    to top,
+    ${colors.middlePurple},
+    ${colors.lightPurple}
+  );
 `;
 
 export const WinningBox = styled(BoxBase)`
@@ -57,7 +67,7 @@ const PlayerIconBase = styled.div`
 
 export const OPlayer = styled(PlayerIconBase)`
   svg {
-    color: ${colors.yellow};
+    color: ${colors.yellowSignColor};
   }
 `;
 
@@ -76,20 +86,23 @@ export const ResultBox = styled.div`
 
 export const PlayerTurnBanner = styled.div`
   width: 100%;
+  margin: auto;
   position: relative;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  background-color: ${colors.lightPurple};
-  padding: 10px;
-  border: 10px solid ${colors.lightPurple};
+  background-color: ${colors.white};
+  padding: 15px;
+  border: 10px solid ${colors.white};
   border-radius: 10px;
   overflow: hidden;
   margin-bottom: 20px;
   box-shadow: ${colors.shadow};
 
-  @media screen and (min-width: 390px) {
-    padding: 20px;
+  @media screen and (max-width: 500px) {
+    padding: 10px;
+    border-width: 8px;
+    border-radius: 5px;
   }
 `;
 
@@ -99,14 +112,23 @@ export const Slider = styled.div`
   top: 0;
   bottom: 0;
   width: 50%;
-  border-radius: 10px;
-  background-color: ${colors.middlePurple};
+  border-radius: 4px;
+  background-color: ${colors.lightPurple};
+  background-image: linear-gradient(
+    to top,
+    ${colors.lightPurple},
+    ${colors.linkColor}
+  );
   transition: left 0.5s ease;
 `;
 
 export const PlayerTurnText = styled.div`
   z-index: 1;
-  color: ${colors.white};
   margin: auto;
-  font-weight: 700;
+  font-weight: 900;
+  color: ${(props) => props.color || colors.white};
+
+  @media screen and (min-width: 500px) {
+    font-size: calc(18 / 16 * 1rem);
+  }
 `;

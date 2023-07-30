@@ -1,18 +1,8 @@
 import styled from "styled-components";
 import { colors } from "../../../assets/variables";
-import { motion } from "framer-motion";
-
-export const Container = styled(motion.div)`
-  display: flex;
-  justify-content: center;
-  flex-direction: column;
-  width: 100%;
-  max-width: 500px;
-  padding: 10px;
-`;
 
 export const Card = styled.div`
-  width: 320px;
+  width: 300px;
   gap: 25px;
   display: flex;
   flex-direction: column;
@@ -21,12 +11,8 @@ export const Card = styled.div`
   background-color: ${colors.white};
   box-shadow: ${colors.shadow};
 
-  @media screen and (min-width: 390px) {
-    width: 350px;
-  }
-
-  @media screen and (min-width: 530px) {
-    width: 500px;
+  @media screen and (min-width: 500px) {
+    width: 450px;
   }
 `;
 
