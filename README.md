@@ -41,3 +41,16 @@ To run the project in your local environment, follow these steps:
 2. Run `npm install` or `yarn` in the project directory to install the required dependencies.
 3. Run `npm run start` or `yarn start` to get the project started.
 4. Open http://localhost:5173 (or the address shown in your console) in your web browser to view the app.
+
+
+## 📸 - Demo Images 
+ 
+![Screenshot 2023-07-30 at 11 00 21](https://github.com/mirayatech/XO-Rumble/assets/71933266/9e377a16-ca73-4a5f-b7d6-35eaaf843f83)
+![Screenshot 2023-07-30 at 11 00 29](https://github.com/mirayatech/XO-Rumble/assets/71933266/c04fb132-2e4c-48d2-931c-62156574f7be)
+![Screenshot 2023-07-30 at 11 07 02](https://github.com/mirayatech/XO-Rumble/assets/71933266/4113f044-42c7-47d8-8a6d-bb19ac5b32ee)
+![Screenshot 2023-07-30 at 11 06 35](https://github.com/mirayatech/XO-Rumble/assets/71933266/378e9b48-efc8-43e8-9358-fb70e9673965)
+![Screenshot 2023-07-30 at 10 59 52](https://github.com/mirayatech/XO-Rumble/assets/71933266/a9f4fb57-b6d0-4d64-b2dc-d3c2dd361609)
+![Screenshot 2023-07-30 at 11 03 04](https://github.com/mirayatech/XO-Rumble/assets/71933266/5db969a7-7cfc-4b4b-b27a-dc962618337f)
+![Screenshot 2023-07-30 at 11 00 59](https://github.com/mirayatech/XO-Rumble/assets/71933266/1ad3a6db-0ba8-4d41-a098-8666cdf5c1c4)
+
+ 
