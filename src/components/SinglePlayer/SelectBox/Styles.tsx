@@ -61,11 +61,13 @@ const BaseButton = styled.button<{ selected?: boolean; shadowColor: string }>`
 `;
 
 export const XButton = styled(BaseButton)<{ selected?: boolean }>`
-  font-size: 80px;
+  width: 100px;
+  font-size: 70px;
   color: ${colors.red};
 `;
 
 export const OButton = styled(BaseButton)<{ selected?: boolean }>`
+  width: 100px;
   color: ${colors.yellow};
   svg {
     font-size: 100px;
