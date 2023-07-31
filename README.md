@@ -12,6 +12,7 @@ In this mode, you will play against a computer bot.
 - Whether it's a win, loss, or a draw, a modal displaying the result appears once the game is over. You'll then see two buttons:
   - 'Replay' button to play again.
   - 'Home' button to return to the main menu.
+- If you close the browser or leave the page and come back, you'll resume the game from where you left off.
 
 ## 2️⃣ Multiplayer (coming soon)
 
@@ -22,6 +23,7 @@ In this mode, you can play with another person sitting next to you.
 - Whether it's a win, loss, or a draw, a modal displaying the result appears once the game is over. You'll then see two buttons:
   - 'Replay' button to play again.
   - 'Home' button to return to the main menu.
+- If you close the browser or leave the page and come back, you'll resume the game from where you left off.
 
 ## ⚡ Technologies
 
