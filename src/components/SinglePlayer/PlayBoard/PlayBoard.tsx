@@ -28,7 +28,7 @@ export default function GameBoard() {
       setWinner(winner);
       setTimeout(() => {
         setGameNavigate("single-player-result");
-      }, 15000);
+      }, 1500);
     } else if (!playerTurn && !winner) {
       botMove();
     }
