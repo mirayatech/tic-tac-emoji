@@ -24,14 +24,16 @@ body {
   padding: 10px;
   line-height: 1.5;
   overflow: hidden;
-  background-color: #af94ff ;
-  
+   background-image: linear-gradient(
+   160deg, #8bcfff,
+#AA8DFE 80%
+  );
   -webkit-font-smoothing: antialiased;
   display: flex;
   flex-direction: column;
   color: ${colors.black};
- justify-content: center;
-    align-items: center;
+  justify-content: center;
+  align-items: center;
  
 }
 
