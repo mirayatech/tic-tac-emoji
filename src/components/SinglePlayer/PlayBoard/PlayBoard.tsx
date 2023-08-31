@@ -1,78 +1,86 @@
-import { useEffect, useState } from "react";
-import { CircleIcon, MarkIcon } from "../../../assets/icon";
-import { colors } from "../../../assets/variables";
-import { checkSinglePlayerWinner } from "../../../util/check-winner-service";
-import { useGameStore } from "../../../util/useGameStore";
-import PlayerBanner from "./PlayerBanner";
-import { PlayArea, WinningBox, XPlayer, OPlayer, Box } from "./Styles";
-import { motion } from "framer-motion";
+import { useState, useEffect } from "react";
 import { useSinglePlayer } from "../../../util/useSinglePlayerStore";
+import { useGameStore } from "../../../util/useGameStore";
+import { calculateSinglePlayerWinner, emojis } from "../../../util";
+import { PlayerBanner } from "../PlayerBanner/PlayerBanner";
 
-export default function GameBoard() {
-  const { setGameNavigate } = useGameStore();
-
-  const { playerTurn, board, setBox, botMove, playerSign, winner, setWinner } =
-    useSinglePlayer();
-  const [winningIndices, setWinningIndices] = useState<number[] | null>(null);
+export default function PlayerBoard() {
+  const { playerSign, board, setBoard, setGameResult } = useSinglePlayer();
+  const { gameNavigate, setGameNavigate } = useGameStore();
+  const [winner, setWinner] = useState<emojis | null>(null);
+  const [isPlayerXNext, setIsPlayerXNext] = useState<boolean>(true);
 
   useEffect(() => {
-    const [winner, indices] = checkSinglePlayerWinner(board);
-    setWinningIndices(indices);
-    if (winner) {
-      setWinner(winner);
-      setTimeout(() => {
-        setGameNavigate("single-player-result");
-      }, 1500);
-    } else if (!playerTurn && !winner) {
-      botMove();
+    const currentPlayer: emojis = isPlayerXNext ? playerSign! : "🤖";
+    if (
+      currentPlayer === "🤖" &&
+      !winner &&
+      gameNavigate === "single-player-board"
+    ) {
+      simulateRobotMove();
     }
-  }, [board, playerTurn, winner, setWinner, botMove]);
+  }, [isPlayerXNext, playerSign, winner, gameNavigate]);
 
-  const handleBoxClick = (index: number) => {
-    if (board[index] === null && playerTurn) {
-      setBox(index, playerSign);
-      useSinglePlayer.getState().setPlayerTurn(false);
+  const handleClick = (index: number) => {
+    if (board[index] || winner) {
+      return;
+    }
+
+    const newBoard: Array<emojis | null> = [...board];
+    newBoard[index] = isPlayerXNext ? playerSign : "🤖";
+    setBoard(newBoard);
+    setIsPlayerXNext(!isPlayerXNext);
+
+    const newWinner: emojis | null = calculateSinglePlayerWinner(newBoard);
+    if (newWinner) {
+      setWinner(newWinner);
+      if (newWinner === playerSign) {
+        setGameResult("win");
+      } else {
+        setGameResult("lose");
+      }
+      setGameNavigate("single-player-result");
+    } else if (!newBoard.includes(null)) {
+      setGameResult("draw");
+      setGameNavigate("single-player-result");
     }
   };
 
+  const simulateRobotMove = () => {
+    setTimeout(() => {
+      const emptyCells: number[] = board
+        .map((cell, index) => (cell === null ? index : -1))
+        .filter((index) => index !== -1) as number[];
+      if (emptyCells.length > 0) {
+        const randomIndex: number = Math.floor(
+          Math.random() * emptyCells.length
+        );
+        handleClick(emptyCells[randomIndex]);
+      }
+    }, 1500);
+  };
+
+  const renderSquare = (index: number) => {
+    return (
+      <button className="square" onClick={() => handleClick(index)}>
+        {board[index]}
+      </button>
+    );
+  };
   return (
-    <motion.div
-      initial={{ opacity: 0 }}
-      animate={{ opacity: 1 }}
-      transition={{ duration: 0.5 }}
-      exit={{ opacity: 0 }}
-    >
-      <PlayerBanner />
-      <PlayArea>
-        {board.map((box, index) => {
-          const isWinningBox = winningIndices?.includes(index);
-          const BoxComponent = isWinningBox ? WinningBox : Box;
-          const boxColor = isWinningBox ? colors.green : colors.lightPurple;
-          return (
-            <BoxComponent
-              key={index}
-              onClick={() => handleBoxClick(index)}
-              initial={{ backgroundColor: colors.lightPurple }}
-              animate={{ backgroundColor: boxColor }}
-              transition={{ duration: 0.3 }}
-            >
-              {box && (
-                <>
-                  {box === "X" ? (
-                    <XPlayer>
-                      <MarkIcon />
-                    </XPlayer>
-                  ) : (
-                    <OPlayer>
-                      <CircleIcon />
-                    </OPlayer>
-                  )}
-                </>
-              )}
-            </BoxComponent>
-          );
-        })}
-      </PlayArea>
-    </motion.div>
+    <>
+      <PlayerBanner isPlayerXNext={isPlayerXNext} />
+      <div className="game-board">
+        <div className="board-row">
+          {[0, 1, 2].map((index) => renderSquare(index))}
+        </div>
+        <div className="board-row">
+          {[3, 4, 5].map((index) => renderSquare(index))}
+        </div>
+        <div className="board-row">
+          {[6, 7, 8].map((index) => renderSquare(index))}
+        </div>
+      </div>{" "}
+    </>
   );
 }
