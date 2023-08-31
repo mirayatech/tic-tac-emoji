@@ -1,18 +1,42 @@
-import toast from "react-hot-toast";
-import LOGO from "../../assets/images/full-logo.svg";
-import { useGameStore } from "../../util/use-game-store";
+import { useGameStore } from "../../util/useGameStore";
 
 import {
   Button,
   ButtonsContainer,
   Footer,
   FooterLink,
-  Logo,
   Wrapper,
+  Emoji,
+  Square,
+  Title,
 } from "./Styles";
+import { getRandomEmoji } from "../../util";
+import { useState, useEffect } from "react";
 
 export default function Start() {
-  const { setNavigate } = useGameStore();
+  const { setNavigate, setGameNavigate } = useGameStore();
+  const [emoji, setEmoji] = useState(getRandomEmoji());
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setEmoji(getRandomEmoji());
+    }, 1500);
+
+    return () => {
+      clearInterval(interval);
+    };
+  }, []);
+
+  const handleOnClick = () => {
+    setNavigate("multi-player");
+    setGameNavigate("multi-player");
+  };
+
+  const handleOnSinglePlayerClick = () => {
+    setNavigate("single-player");
+    setGameNavigate("select-box");
+  };
+
   return (
     <Wrapper
       initial={{ opacity: 0 }}
@@ -20,21 +44,30 @@ export default function Start() {
       transition={{ duration: 0.5 }}
       exit={{ opacity: 0 }}
     >
-      <Logo src={LOGO} alt="XO Rumble Logo" />
+      <Square
+        className="container"
+        initial={{ scale: 0 }}
+        animate={{ rotate: 180, scale: 1 }}
+        transition={{
+          type: "spring",
+          stiffness: 260,
+          damping: 20,
+        }}
+      >
+        <Emoji>{emoji}</Emoji>
+      </Square>
+      <Title>
+        Tic Tac <span>Emoji</span>
+      </Title>
       <ButtonsContainer>
-        <Button onClick={() => setNavigate("single-player")}>
+        <Button onClick={handleOnSinglePlayerClick} $isMulti={true}>
           Single Player
         </Button>
-        <Button
-          onClick={() => toast("Coming Soon!", { icon: "🚧" })}
-          isMulti={true}
-        >
-          Multi Player
-        </Button>
+        <Button onClick={handleOnClick}>Multi Player</Button>
       </ButtonsContainer>
       <Footer>
         <FooterLink
-          href="https://github.com/mirayatech/XO-Rumble"
+          href="https://github.com/mirayatech/tic-tac-emoji"
           target="_blank"
         >
           Created by Miraya
