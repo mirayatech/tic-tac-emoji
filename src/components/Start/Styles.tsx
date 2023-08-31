@@ -28,14 +28,6 @@ export const Title = styled(motion.h1)`
   font-size: 50px;
   padding: 30px 0;
 
-  span {
-    color: white;
-    /* Hard to choose which color I should take 😅 */
-    /* background: -webkit-linear-gradient(180deg, #ffc800, #ffde83);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent; */
-  }
-
   @media screen and (min-width: 500px) {
     font-size: 60px;
   }
