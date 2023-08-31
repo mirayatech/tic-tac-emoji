@@ -1,5 +1,4 @@
-import { emojis } from "./emoji";
-
+import { emojis } from "./types";
 export function getRandomEmoji(): emojis {
   const emojis: string[] = [
     "😀",
