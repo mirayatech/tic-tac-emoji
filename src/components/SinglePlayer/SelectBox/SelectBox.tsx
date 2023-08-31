@@ -12,8 +12,7 @@ import {
 } from "./Styles";
 import { toast } from "react-hot-toast";
 import { useSinglePlayer } from "../../../util/useSinglePlayerStore";
-import { emojis } from "../../../util/emoji";
-import { getRandomEmoji } from "../../../util";
+import { emojis, getRandomEmoji } from "../../../util";
 
 export default function SelectBox() {
   const { setPlayerSign } = useSinglePlayer();
@@ -32,7 +31,7 @@ export default function SelectBox() {
   }, []);
 
   const handleClick = (sign: emojis) => {
-    setSelectedEmoji(sign); // Update the selected emoji in React state
+    setSelectedEmoji(sign);
     setPlayerSign(sign);
     setSignSelected(true);
   };

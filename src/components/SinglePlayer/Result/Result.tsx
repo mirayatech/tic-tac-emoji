@@ -1,64 +1,30 @@
-import WIN from "../../../assets/images/win.png";
-import DRAW from "../../../assets/images/draw.png";
-import LOSE from "../../../assets/images/lose.png";
-import { Divider, ButtonsContainer, Button } from "../SelectBox/Styles";
-import { Card, Title, WinImage, DrawImage, LoseImage } from "./Styles";
-import { motion } from "framer-motion";
-import { useSinglePlayer } from "../../../util/useSinglePlayerStore";
-import { useGameStore } from "../../../util/useGameStore";
+import { useGameStore, useSinglePlayer } from "../../../util";
 
 export default function Result() {
-  const { playerSign, winner, resetSinglePlayer, reset } = useSinglePlayer();
-  const { setGameNavigate, setNavigate } = useGameStore();
-
-  if (!winner) {
-    return null;
-  }
-
-  const resultTitle =
-    winner === playerSign
-      ? "You won the game"
-      : winner === "draw"
-      ? "It's a draw"
-      : "You lost the game";
-
-  const handleOnResetCLick = () => {
-    resetSinglePlayer();
-    setGameNavigate("select-box");
-  };
+  const { gameResult, reset } = useSinglePlayer();
+  const { setNavigate, setGameNavigate } = useGameStore();
 
   const handleOnHomeClick = () => {
-    reset();
     setNavigate("start");
+    setGameNavigate("");
+    reset();
+  };
+
+  const handleOnResetClick = () => {
+    reset();
     setGameNavigate("select-box");
   };
   return (
-    <motion.div
-      initial={{ opacity: 0 }}
-      animate={{ opacity: 1 }}
-      transition={{ duration: 0.5 }}
-      exit={{ opacity: 0 }}
-    >
-      {winner && (
-        <Card>
-          <Title>
-            <h1>{resultTitle}</h1>
-            <Divider />
+    <div className="result">
+      {gameResult === "win" && <p>You Win!</p>}
+      {gameResult === "lose" && <p>You Lost!</p>}
+      {gameResult === "draw" && <p>It's a Draw!</p>}
 
-            {winner === playerSign ? (
-              <WinImage src={WIN} />
-            ) : winner === "draw" ? (
-              <DrawImage src={DRAW} />
-            ) : (
-              <LoseImage src={LOSE} />
-            )}
-          </Title>
-          <ButtonsContainer>
-            <Button onClick={handleOnResetCLick}>Replay</Button>
-            <Button onClick={handleOnHomeClick}>Home</Button>
-          </ButtonsContainer>
-        </Card>
-      )}
-    </motion.div>
+      <div>
+        <button onClick={handleOnResetClick}>Reset</button>
+
+        <button onClick={handleOnHomeClick}>Home</button>
+      </div>
+    </div>
   );
 }
