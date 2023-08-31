@@ -1,8 +1,8 @@
 import { AnimatePresence } from "framer-motion";
 import { Suspense } from "react";
 
-import { SinglePlayer, Start } from "./components";
-import { useGameStore } from "./util/use-game-store";
+import { MultiPlayer, SinglePlayer, Start } from "./components";
+import { useGameStore } from "./util/useGameStore";
 import { Toaster } from "react-hot-toast";
 import { Spinner } from "./components/Spinner/Spinner";
 
@@ -21,6 +21,12 @@ function App() {
       {navigate === "single-player" && (
         <Suspense fallback={<Spinner />}>
           <SinglePlayer />
+        </Suspense>
+      )}
+
+      {navigate === "multi-player" && (
+        <Suspense fallback={<Spinner />}>
+          <MultiPlayer />
         </Suspense>
       )}
     </AnimatePresence>
