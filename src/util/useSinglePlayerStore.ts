@@ -1,16 +1,11 @@
 import { create } from "zustand";
 import { persist } from "zustand/middleware";
 
-type GameStateType = {
-  navigate: string;
-  gameNavigate: string;
+type SinglePlayerState = {
   playerSign: "X" | "O" | null;
   playerTurn: boolean;
   board: ("X" | "O" | null)[];
   winner: "X" | "O" | "draw" | null;
-  setNavigate: (value: string) => void;
-  setGameNavigate: (value: string) => void;
-
   setPlayerSign: (value: "X" | "O" | null) => void;
   setBox: (index: number, sign: "X" | "O" | null) => void;
   setWinner: (value: "X" | "O" | "draw" | null) => void;
@@ -20,19 +15,13 @@ type GameStateType = {
   reset: () => void;
 };
 
-export const useGameStore = create<GameStateType>()(
+export const useSinglePlayer = create<SinglePlayerState>()(
   persist(
     (set) => ({
-      navigate: "start",
-      gameNavigate: "select-box",
-
       playerSign: null,
       playerTurn: true,
       board: Array(9).fill(null),
       winner: null,
-      setNavigate: (val) => set(() => ({ navigate: val })),
-      setGameNavigate: (val) => set(() => ({ gameNavigate: val })),
-
       setPlayerSign: (val) => set({ playerSign: val }),
       setBox: (index, sign) =>
         set((state) => {
@@ -68,14 +57,11 @@ export const useGameStore = create<GameStateType>()(
 
           return state;
         }),
-
       resetSinglePlayer: () =>
         set({
           playerSign: null,
           board: Array(9).fill(null),
           winner: null,
-          navigate: "single-player",
-          gameNavigate: "select-box",
           playerTurn: true,
         }),
       reset: () =>
@@ -83,13 +69,11 @@ export const useGameStore = create<GameStateType>()(
           playerSign: null,
           board: Array(9).fill(null),
           winner: null,
-          navigate: "start",
-          gameNavigate: "select-box",
           playerTurn: true,
         }),
     }),
     {
-      name: "game-storage",
+      name: "single-game-storage",
     }
   )
 );
