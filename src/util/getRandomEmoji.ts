@@ -85,6 +85,7 @@ export function getRandomEmoji(): emojis {
     "💀",
     "👻",
     "👽",
+    "🤖",
     "💩",
     "🙊",
     "🙉",
