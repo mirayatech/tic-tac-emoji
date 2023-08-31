@@ -3,7 +3,6 @@ import { useGameStore } from "../../../util/useGameStore";
 import {
   Emojis,
   EmojiButton,
-  InteractButton,
   StyledDivider,
   StyledTitle,
   StyledWrapper,
@@ -13,6 +12,7 @@ import {
 import { toast } from "react-hot-toast";
 import { useSinglePlayer } from "../../../util/useSinglePlayerStore";
 import { emojis, getRandomEmoji } from "../../../util";
+import { Button } from "../Result/Styles";
 
 export default function SelectBox() {
   const { setPlayerSign } = useSinglePlayer();
@@ -78,16 +78,17 @@ export default function SelectBox() {
         </Emojis>
         <StyledDivider $noMarginTop={true} />
         <Buttons>
-          <InteractButton
+          <Button
+            $isMulti={true}
             className="back-button"
             aria-label="back to home"
             onClick={() => setNavigate("start")}
           >
             Back
-          </InteractButton>
-          <InteractButton className="play-button" onClick={handlePlayClick}>
+          </Button>
+          <Button className="play-button" onClick={handlePlayClick}>
             Play
-          </InteractButton>
+          </Button>
         </Buttons>
       </PlayerCard>
     </StyledWrapper>

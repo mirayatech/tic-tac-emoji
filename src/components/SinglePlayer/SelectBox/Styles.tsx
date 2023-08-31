@@ -67,47 +67,6 @@ export const Buttons = styled.div`
   }
 `;
 
-export const InteractButton = styled.button`
-  height: 45px;
-  margin: 0 auto;
-  font-weight: bold;
-  color: ${colors.white};
-  border: none;
-  font-size: 1.1rem;
-  max-width: 300px;
-  width: 100%;
-  color: ${colors.white};
-  font-size: 1.1rem;
-  transition: all 200ms ease-in;
-  border-radius: 10px;
-  box-shadow: ${colors.shadow};
-
-  &.back-button {
-    text-shadow: 0px -2px #8956f1;
-    background-color: #a081ff;
-    border-bottom: 4px solid #8956f1;
-  }
-
-  &.play-button {
-    text-shadow: 0px -2px #232229;
-    background-color: #3f3f3f;
-    border-bottom: 4px solid #232229;
-  }
-
-  &:hover {
-    opacity: 0.9;
-  }
-
-  &:active {
-    transform: translateY(2px);
-    border-bottom-width: 2px;
-  }
-
-  @media screen and (max-width: 500px) {
-    font-size: 1rem;
-  }
-`;
-
 export const EmojiTextStyled = styled.span<{ color: string }>`
   color: ${(props) => props.color};
   font-size: 24px;
