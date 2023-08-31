@@ -24,12 +24,8 @@ body {
   padding: 10px;
   line-height: 1.5;
   overflow: hidden;
-  background-color: ${colors.darkPurple};
-  background-image: linear-gradient(
-    to top,
-   ${colors.darkPurple},
-    ${colors.lightPurple}
-  );
+  background-color: #af94ff ;
+  
   -webkit-font-smoothing: antialiased;
   display: flex;
   flex-direction: column;
