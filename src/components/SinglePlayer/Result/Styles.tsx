@@ -3,7 +3,7 @@ import { colors } from "../../../assets/variables";
 
 export const Card = styled.div`
   width: 300px;
-  gap: 25px;
+  gap: 10px;
   display: flex;
   flex-direction: column;
   padding: 20px;
@@ -16,24 +16,47 @@ export const Card = styled.div`
   }
 `;
 
-export const WinImage = styled.img`
-  max-width: 140px;
-  margin: 25px auto 10px;
+export const Emoji = styled.span`
+  text-align: center;
+  font-size: calc(50 / 16 * 1rem);
 `;
 
-export const LoseImage = styled.img`
-  max-width: 120px;
-  margin: 30px auto 10px;
-`;
-export const DrawImage = styled.img`
-  max-width: 170px;
-  margin: 10px auto 0;
+export const Title = styled.h1`
+  text-align: center;
+  font-size: calc(28 / 16 * 1rem);
+  font-weight: 700;
+  margin-bottom: 30px;
 `;
 
-export const Title = styled.div`
-  h1 {
-    text-align: center;
-    font-size: calc(20 / 16 * 1rem);
-    font-weight: 700;
+export const Button = styled.button<{ $isMulti?: boolean }>`
+  height: 50px;
+  width: 100%;
+  font-weight: bold;
+  color: white;
+  border: none;
+  font-size: 1.2rem;
+  transition: all 200ms ease-in;
+  padding: 5px;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+
+  &:hover {
+    opacity: 0.9;
+  }
+
+  &:active {
+    transform: translateY(2px);
+    border-bottom-width: 2px;
+  }
+
+  text-shadow: ${({ $isMulti }) =>
+    $isMulti ? "0px -2px #366cc9" : `0px -2px #232229`};
+  background: ${({ $isMulti }) => ($isMulti ? "#5389e6" : "#3f3f3f")};
+  border-bottom: ${({ $isMulti }) =>
+    $isMulti ? `4px solid #366cc9` : `4px solid #232229`};
+
+  @media screen and (max-width: 500px) {
+    font-size: 1.05rem;
+    width: 80%;
   }
 `;
