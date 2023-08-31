@@ -1,4 +1,6 @@
-export function getRandomEmoji(): string {
+import { emojis } from "./emoji";
+
+export function getRandomEmoji(): emojis {
   const emojis: string[] = [
     "😀",
     "😃",
@@ -109,5 +111,5 @@ export function getRandomEmoji(): string {
   ];
 
   const randomIndex: number = Math.floor(Math.random() * emojis.length);
-  return emojis[randomIndex];
+  return emojis[randomIndex] as emojis;
 }
