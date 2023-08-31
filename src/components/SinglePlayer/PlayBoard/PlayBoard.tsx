@@ -1,28 +1,22 @@
 import { useEffect, useState } from "react";
 import { CircleIcon, MarkIcon } from "../../../assets/icon";
 import { colors } from "../../../assets/variables";
-import { checkWinner } from "../../../util/check-winner-service";
-import { useGameStore } from "../../../util/use-game-store";
+import { checkSinglePlayerWinner } from "../../../util/check-winner-service";
+import { useGameStore } from "../../../util/useGameStore";
 import PlayerBanner from "./PlayerBanner";
 import { PlayArea, WinningBox, XPlayer, OPlayer, Box } from "./Styles";
 import { motion } from "framer-motion";
+import { useSinglePlayer } from "../../../util/useSinglePlayerStore";
 
 export default function GameBoard() {
-  const {
-    playerTurn,
-    board,
-    setBox,
-    botMove,
-    playerSign,
-    winner,
-    setWinner,
-    setGameNavigate,
-  } = useGameStore();
+  const { setGameNavigate } = useGameStore();
 
+  const { playerTurn, board, setBox, botMove, playerSign, winner, setWinner } =
+    useSinglePlayer();
   const [winningIndices, setWinningIndices] = useState<number[] | null>(null);
 
   useEffect(() => {
-    const [winner, indices] = checkWinner(board);
+    const [winner, indices] = checkSinglePlayerWinner(board);
     setWinningIndices(indices);
     if (winner) {
       setWinner(winner);
@@ -37,7 +31,7 @@ export default function GameBoard() {
   const handleBoxClick = (index: number) => {
     if (board[index] === null && playerTurn) {
       setBox(index, playerSign);
-      useGameStore.getState().setPlayerTurn(false);
+      useSinglePlayer.getState().setPlayerTurn(false);
     }
   };
 

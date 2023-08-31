@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { CircleIcon, MarkIcon } from "../../../assets/icon";
-import { useGameStore } from "../../../util/use-game-store";
+import { useGameStore } from "../../../util/useGameStore";
 import {
   Boxes,
   Button,
@@ -13,9 +13,11 @@ import {
   XButton,
 } from "./Styles";
 import { toast } from "react-hot-toast";
+import { useSinglePlayer } from "../../../util/useSinglePlayerStore";
 
 export default function SelectBox() {
-  const { setPlayerSign, setGameNavigate, setNavigate } = useGameStore();
+  const { setPlayerSign } = useSinglePlayer();
+  const { setGameNavigate, setNavigate } = useGameStore();
   const [selectedSign, setSelectedSign] = useState<"" | "X" | "O">("");
   const [signSelected, setSignSelected] = useState(false);
 

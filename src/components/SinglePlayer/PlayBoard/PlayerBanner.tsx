@@ -1,10 +1,14 @@
 import { useState, useEffect } from "react";
-import { useGameStore } from "../../../util/use-game-store";
 import { PlayerTurnBanner, PlayerTurnText, Slider } from "./Styles";
 import { colors } from "../../../assets/variables";
+import { useSinglePlayer } from "../../../util/useSinglePlayerStore";
 
-export default function PlayerBanner() {
-  const { playerTurn, playerSign } = useGameStore();
+export default function PlayerBanner({
+  isMultiplayer,
+}: {
+  isMultiplayer?: boolean;
+}) {
+  const { playerTurn, playerSign } = useSinglePlayer();
 
   const [sliderLeft, setSliderLeft] = useState(playerTurn ? "0%" : "50%");
 
@@ -25,12 +29,12 @@ export default function PlayerBanner() {
   return (
     <PlayerTurnBanner>
       <PlayerTurnText color={getColor(playerTurn, playerSign)}>
-        Your Turn
+        {isMultiplayer ? "X's Turn" : "Your Turn"}
       </PlayerTurnText>
       <PlayerTurnText
         color={getColor(!playerTurn, playerSign === "X" ? "O" : "X")}
       >
-        Bot's Turn
+        {isMultiplayer ? "O's Turn" : "Bot's Turn"}
       </PlayerTurnText>
       <Slider style={{ left: sliderLeft }}></Slider>
     </PlayerTurnBanner>

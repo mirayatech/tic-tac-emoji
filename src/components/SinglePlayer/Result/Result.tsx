@@ -1,13 +1,15 @@
 import WIN from "../../../assets/images/win.png";
 import DRAW from "../../../assets/images/draw.png";
 import LOSE from "../../../assets/images/lose.png";
-import { useGameStore } from "../../../util/use-game-store";
 import { Divider, ButtonsContainer, Button } from "../SelectBox/Styles";
 import { Card, Title, WinImage, DrawImage, LoseImage } from "./Styles";
 import { motion } from "framer-motion";
+import { useSinglePlayer } from "../../../util/useSinglePlayerStore";
+import { useGameStore } from "../../../util/useGameStore";
 
 export default function Result() {
-  const { playerSign, winner, resetSinglePlayer, reset } = useGameStore();
+  const { playerSign, winner, resetSinglePlayer, reset } = useSinglePlayer();
+  const { setGameNavigate, setNavigate } = useGameStore();
 
   if (!winner) {
     return null;
@@ -20,6 +22,16 @@ export default function Result() {
       ? "It's a draw"
       : "You lost the game";
 
+  const handleOnResetCLick = () => {
+    resetSinglePlayer();
+    setGameNavigate("select-box");
+  };
+
+  const handleOnHomeClick = () => {
+    reset();
+    setNavigate("start");
+    setGameNavigate("select-box");
+  };
   return (
     <motion.div
       initial={{ opacity: 0 }}
@@ -42,8 +54,8 @@ export default function Result() {
             )}
           </Title>
           <ButtonsContainer>
-            <Button onClick={() => resetSinglePlayer()}>Replay</Button>
-            <Button onClick={() => reset()}>Home</Button>
+            <Button onClick={handleOnResetCLick}>Replay</Button>
+            <Button onClick={handleOnHomeClick}>Home</Button>
           </ButtonsContainer>
         </Card>
       )}
