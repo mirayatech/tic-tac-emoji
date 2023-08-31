@@ -1,5 +1,5 @@
 import create from "zustand";
-import { checkMultiPlayerWinner } from "./check-winner-service";
+import { checkMultiPlayerWinner } from ".";
 
 type MultiplayerStateType = {
   multiplayerBoard: ("X" | "O" | null)[];
