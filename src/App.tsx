@@ -1,4 +1,3 @@
-import { AnimatePresence } from "framer-motion";
 import { Suspense } from "react";
 
 import { MultiPlayer, SinglePlayer, Start } from "./components";
@@ -9,7 +8,7 @@ import { Spinner } from "./components/Spinner/Spinner";
 function App() {
   const { navigate } = useGameStore();
   return (
-    <AnimatePresence>
+    <>
       <Toaster />
 
       {navigate === "start" && (
@@ -29,7 +28,7 @@ function App() {
           <MultiPlayer />
         </Suspense>
       )}
-    </AnimatePresence>
+    </>
   );
 }
 
