@@ -12,6 +12,7 @@ export default function PlayerBoard() {
   const { gameNavigate, setGameNavigate } = useGameStore();
   const [winner, setWinner] = useState<emojis | null>(null);
   const [isPlayerXNext, setIsPlayerXNext] = useState<boolean>(true);
+  const [isBotTurn, setIsBotTurn] = useState<boolean>(false);
 
   useEffect(() => {
     const currentPlayer: emojis = isPlayerXNext ? playerSign! : "🤖";
@@ -20,12 +21,15 @@ export default function PlayerBoard() {
       !winner &&
       gameNavigate === "single-player-board"
     ) {
+      setIsBotTurn(true);
       simulateRobotMove();
+    } else {
+      setIsBotTurn(false);
     }
   }, [isPlayerXNext, playerSign, winner, gameNavigate]);
 
   const handleClick = (index: number) => {
-    if (board[index] || winner) {
+    if (board[index] || winner || isBotTurn) {
       return;
     }
 
@@ -71,7 +75,7 @@ export default function PlayerBoard() {
       display: flex;
       align-items: center;
       justify-content: center;
-      cursor: pointer;
+      cursor: ${isBotTurn ? "not-allowed" : "pointer"};
       border-radius: 5px;
       font-size: 80px;
 
@@ -92,6 +96,7 @@ export default function PlayerBoard() {
     `;
     return <Box onClick={() => handleClick(index)}>{board[index]}</Box>;
   };
+
   return (
     <>
       <PlayerBanner isPlayerXNext={isPlayerXNext} />
