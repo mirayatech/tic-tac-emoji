@@ -57,6 +57,5 @@ export const Button = styled.button<{ $isMulti?: boolean }>`
 
   @media screen and (max-width: 500px) {
     font-size: 1.05rem;
-    width: 80%;
   }
 `;
