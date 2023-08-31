@@ -1,11 +1,6 @@
 import { useState, useEffect } from "react";
 import { colors } from "../../assets/variables";
 import useMultiplayerStore from "../../util/useMultiplayerStore";
-import {
-  PlayerTurnBanner,
-  PlayerTurnText,
-  Slider,
-} from "../SinglePlayer/PlayBoard/Styles";
 
 export function PlayerBanner({ isMultiplayer }: { isMultiplayer: boolean }) {
   const { multiplayerPlayerXIsNext } = useMultiplayerStore();
@@ -24,14 +19,14 @@ export function PlayerBanner({ isMultiplayer }: { isMultiplayer: boolean }) {
   };
 
   return (
-    <PlayerTurnBanner>
-      <PlayerTurnText color={getColor(multiplayerPlayerXIsNext)}>
+    <div>
+      <div color={getColor(multiplayerPlayerXIsNext)}>
         {isMultiplayer ? "X's Turn" : "Your Turn"}
-      </PlayerTurnText>
-      <PlayerTurnText color={getColor(!multiplayerPlayerXIsNext)}>
+      </div>
+      <div color={getColor(!multiplayerPlayerXIsNext)}>
         {isMultiplayer ? "O's Turn" : "Bot's Turn"}
-      </PlayerTurnText>
-      <Slider style={{ left: sliderLeft }}></Slider>
-    </PlayerTurnBanner>
+      </div>
+      <div style={{ left: sliderLeft }}></div>
+    </div>
   );
 }

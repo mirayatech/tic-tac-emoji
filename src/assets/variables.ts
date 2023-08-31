@@ -17,5 +17,5 @@ export const colors = {
   middlePurple: "#342267",
   lightPurple: "#6748C4",
   linkColor: "#8f6fed",
-  shadow: `2px 5px 5px #22222238`,
+  shadow: "0 4px 10px rgba(0, 0, 0, 0.1)",
 };
