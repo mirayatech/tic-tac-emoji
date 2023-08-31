@@ -1,14 +1,15 @@
 import { create } from "zustand";
 import { persist } from "zustand/middleware";
+import { emojis } from "./emoji";
 
 type SinglePlayerState = {
-  playerSign: "X" | "O" | null;
+  playerSign: emojis | null;
   playerTurn: boolean;
-  board: ("X" | "O" | null)[];
-  winner: "X" | "O" | "draw" | null;
-  setPlayerSign: (value: "X" | "O" | null) => void;
-  setBox: (index: number, sign: "X" | "O" | null) => void;
-  setWinner: (value: "X" | "O" | "draw" | null) => void;
+  board: (emojis | null)[];
+  winner: emojis | "draw" | null;
+  setPlayerSign: (value: emojis | null) => void;
+  setBox: (index: number, sign: emojis | null) => void;
+  setWinner: (value: emojis | "draw" | null) => void;
   setPlayerTurn: (value: boolean) => void;
   botMove: () => void;
   resetSinglePlayer: () => void;
@@ -43,7 +44,7 @@ export const useSinglePlayer = create<SinglePlayerState>()(
                 availableGridCells[
                   Math.floor(Math.random() * availableGridCells.length)
                 ];
-              const botSign = state.playerSign === "X" ? "O" : "X";
+              const botSign = "🤖";
 
               set((state) => {
                 const updatedBoard = [...state.board];
