@@ -1,13 +1,11 @@
 import { useState, useEffect } from "react";
-import { useSinglePlayer } from "../../../util/useSinglePlayerStore";
-import { useGameStore } from "../../../util/useGameStore";
-import { calculateSinglePlayerWinner, emojis } from "../../../util";
-import { PlayerBanner } from "../PlayerBanner/PlayerBanner";
-import { PlayArea } from "./Styles";
-import styled from "styled-components";
-import { motion } from "framer-motion";
+import { useSinglePlayer } from "../../util/useSinglePlayerStore";
+import { useGameStore } from "../../util/useGameStore";
+import { calculateSinglePlayerWinner, emojis } from "../../util";
+import { PlayerBanner } from "./PlayerBanner/PlayerBanner";
+import Board from "../core/board/board";
 
-export default function PlayerBoard() {
+export default function SinglePlayerBoard() {
   const { playerSign, board, setBoard, setGameResult } = useSinglePlayer();
   const { gameNavigate, setGameNavigate } = useGameStore();
   const [winner, setWinner] = useState<emojis | null>(null);
@@ -67,44 +65,10 @@ export default function PlayerBoard() {
     }, 1500);
   };
 
-  const renderSquare = (index: number) => {
-    const BoxBase = styled(motion.section)`
-      border: none;
-      height: 150px;
-      width: 150px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      cursor: ${isBotTurn ? "not-allowed" : "pointer"};
-      border-radius: 5px;
-      font-size: 80px;
-
-      @media screen and (max-width: 500px) {
-        height: 120px;
-        width: 120px;
-      }
-
-      @media screen and (max-width: 420px) {
-        height: 90px;
-        width: 90px;
-        font-size: 50px;
-      }
-    `;
-
-    const Box = styled(BoxBase)`
-      background-color: #c8c8ca;
-    `;
-    return <Box onClick={() => handleClick(index)}>{board[index]}</Box>;
-  };
-
   return (
     <>
       <PlayerBanner isPlayerXNext={isPlayerXNext} />
-      <PlayArea>
-        {[0, 1, 2].map((index) => renderSquare(index))}
-        {[3, 4, 5].map((index) => renderSquare(index))}
-        {[6, 7, 8].map((index) => renderSquare(index))}
-      </PlayArea>
+      <Board squares={board} onClick={handleClick} />
     </>
   );
 }
