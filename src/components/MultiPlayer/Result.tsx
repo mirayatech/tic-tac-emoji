@@ -1,5 +1,8 @@
+import { styled } from "styled-components";
 import { useGameStore } from "../../util/useGameStore";
 import useMultiplayerStore from "../../util/useMultiplayerStore";
+import { Button, Card } from "../SinglePlayer/Result/Styles";
+import { ButtonsContainer } from "../Start/Styles";
 
 export default function Result() {
   const { multiplayerWinner, reset } = useMultiplayerStore();
@@ -16,20 +19,37 @@ export default function Result() {
     setGameNavigate("multi-player");
   };
 
+  const Title = styled.h1`
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 0 0 60px;
+
+    span {
+      font-size: 40px;
+    }
+  `;
+
   return (
-    <div>
+    <Card>
       <div>
         {multiplayerWinner === "draw" ? (
-          <h2>It's a draw!</h2>
+          <Title>It's a draw!</Title>
         ) : (
-          <h2>{`Player ${multiplayerWinner} Wins!`}</h2>
+          <Title>
+            Player <span> {multiplayerWinner}</span> Wins!
+          </Title>
         )}
-        <div>
-          <button onClick={handleOnResetClick}>Reset</button>
+        <ButtonsContainer>
+          <Button onClick={handleOnResetClick}>Reset</Button>
 
-          <button onClick={handleOnHomeClick}>Home</button>
-        </div>
+          <Button onClick={handleOnHomeClick} $isMulti={true}>
+            Home
+          </Button>
+        </ButtonsContainer>
       </div>
-    </div>
+    </Card>
   );
 }
