@@ -1,5 +1,5 @@
 import create from "zustand";
-import { checkMultiPlayerWinner } from ".";
+import { checkMultiPlayerWinner, getRandomEmoji } from ".";
 
 type MultiplayerStateType = {
   multiplayerBoard: ("X" | "O" | null)[];
@@ -7,35 +7,51 @@ type MultiplayerStateType = {
   multiplayerWinner: "X" | "O" | "draw" | null;
   multiplayerHandleClick: (index: number) => void;
   reset: () => void;
+  emojiX: string;
+  emojiO: string;
 };
 
-const useMultiplayerStore = create<MultiplayerStateType>((set) => ({
-  multiplayerBoard: Array(9).fill(null),
-  multiplayerPlayerXIsNext: true,
-  multiplayerWinner: null,
-  multiplayerHandleClick: (index) =>
-    set((state) => {
-      if (state.multiplayerWinner || state.multiplayerBoard[index]) {
-        return state;
-      }
-      const newBoard = [...state.multiplayerBoard];
+const useMultiplayerStore = create<MultiplayerStateType>((set) => {
+  const emojiX = getRandomEmoji();
+  const emojiO = getRandomEmoji();
 
-      newBoard[index] = state.multiplayerPlayerXIsNext ? "X" : "O";
+  return {
+    multiplayerBoard: Array(9).fill(null),
+    multiplayerPlayerXIsNext: true,
+    multiplayerWinner: null,
+    emojiX,
+    emojiO,
+    multiplayerHandleClick: (index) =>
+      set((state) => {
+        if (state.multiplayerWinner || state.multiplayerBoard[index]) {
+          return state;
+        }
+        const newBoard = [...state.multiplayerBoard];
+        const emoji = state.multiplayerPlayerXIsNext
+          ? state.emojiX
+          : state.emojiO;
 
-      const winner = checkMultiPlayerWinner(newBoard);
+        newBoard[index] = emoji as any; // for now, we'll just ignore the type error
 
-      return {
-        multiplayerBoard: newBoard,
-        multiplayerPlayerXIsNext: !state.multiplayerPlayerXIsNext,
-        multiplayerWinner: winner,
-      };
-    }),
-  reset: () =>
-    set({
-      multiplayerBoard: Array(9).fill(null),
-      multiplayerPlayerXIsNext: true,
-      multiplayerWinner: null,
-    }),
-}));
+        const winner = checkMultiPlayerWinner(newBoard);
+
+        return {
+          multiplayerBoard: newBoard,
+          multiplayerPlayerXIsNext: !state.multiplayerPlayerXIsNext,
+          multiplayerWinner: winner,
+          emojiX: state.emojiX,
+          emojiO: state.emojiO,
+        };
+      }),
+    reset: () =>
+      set(() => ({
+        multiplayerBoard: Array(9).fill(null),
+        multiplayerPlayerXIsNext: true,
+        multiplayerWinner: null,
+        emojiX: getRandomEmoji(),
+        emojiO: getRandomEmoji(),
+      })),
+  };
+});
 
 export default useMultiplayerStore;
