@@ -39,5 +39,5 @@ export const BoxBase = styled(motion.section)`
 `;
 
 export const Box = styled(BoxBase)`
-  background-color: #c8c8ca;
+  background-color: #dedede;
 `;

@@ -10,12 +10,17 @@ export const StyledWrapper = styled(motion.div)`
 `;
 
 export const PlayerCard = styled.div`
-  padding: 20px;
+  width: 320px;
+  gap: 10px;
+  display: flex;
+  flex-direction: column;
+  padding: 12px;
   border-radius: 10px;
   background-color: ${colors.white};
   box-shadow: ${colors.shadow};
   @media screen and (min-width: 500px) {
-    width: 400px;
+    width: 450px;
+    padding: 20px;
   }
 `;
 
@@ -25,13 +30,12 @@ export const StyledTitle = styled.div`
     font-size: calc(20 / 16 * 1rem);
     font-weight: 700;
     margin-bottom: 10px;
-  }
-`;
+    border-bottom: 1px solid ${colors.grey};
 
-export const StyledDivider = styled.div<{ $noMarginTop?: boolean }>`
-  margin-top: ${($noMarginTop) => ($noMarginTop ? "0" : "20px")};
-  padding: 1px;
-  background-color: ${colors.grey};
+    @media screen and (min-width: 500px) {
+      font-size: calc(24 / 16 * 1rem);
+    }
+  }
 `;
 
 export const Emojis = styled.div`
@@ -42,12 +46,13 @@ export const Emojis = styled.div`
 
   span {
     font-weight: bold;
-    font-size: calc(18 / 16 * 1rem);
+    font-size: calc(24 / 16 * 1rem);
   }
 `;
 
 export const EmojiButton = styled.div<{ $selected: boolean }>`
   font-size: 70px;
+
   transition: transform 0.3s ease, box-shadow 0.3s ease;
   transform: ${(props) => (props.$selected ? "scale(1.05)" : "none")};
   filter: ${(props) =>

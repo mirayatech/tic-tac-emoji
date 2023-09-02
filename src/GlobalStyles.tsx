@@ -22,10 +22,7 @@ body {
   padding: 10px;
   line-height: 1.5;
   overflow: hidden;
-   background-image: linear-gradient(
-   160deg, #69a0ff,
-#b8d2ff 80%
-  );
+  background-color: #629cff;
   -webkit-font-smoothing: antialiased;
   display: flex;
   flex-direction: column;

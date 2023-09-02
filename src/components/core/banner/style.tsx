@@ -34,7 +34,7 @@ export const Slider = styled.div`
   bottom: 0;
   width: 50%;
   border-radius: 4px;
-  background-color: #c8c8ca;
+  background-color: #dedede;
   transition: left 0.5s ease;
 `;
 

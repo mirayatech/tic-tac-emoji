@@ -3,16 +3,14 @@ import { useGameStore } from "../../../util/useGameStore";
 import {
   Emojis,
   EmojiButton,
-  StyledDivider,
   StyledTitle,
   StyledWrapper,
   PlayerCard,
-  Buttons,
 } from "./style";
 import { toast } from "react-hot-toast";
 import { useSinglePlayer } from "../../../util/useSinglePlayerStore";
 import { emojis, getRandomEmoji } from "../../../util";
-import { Button } from "../../core/result/style";
+import { Button, ButtonsContainer } from "../../core/result/style";
 
 export default function SelectBox() {
   const { setPlayerSign } = useSinglePlayer();
@@ -56,7 +54,6 @@ export default function SelectBox() {
         <StyledTitle>
           <h1>Select who you want to be</h1>
         </StyledTitle>
-        <StyledDivider />
         <Emojis>
           <EmojiButton
             onClick={() => handleClick(randomEmojiX)}
@@ -76,8 +73,7 @@ export default function SelectBox() {
             {randomEmojiO}
           </EmojiButton>
         </Emojis>
-        <StyledDivider $noMarginTop={true} />
-        <Buttons>
+        <ButtonsContainer>
           <Button
             $isMulti={true}
             className="back-button"
@@ -89,7 +85,7 @@ export default function SelectBox() {
           <Button className="play-button" onClick={handlePlayClick}>
             Play
           </Button>
-        </Buttons>
+        </ButtonsContainer>
       </PlayerCard>
     </StyledWrapper>
   );
