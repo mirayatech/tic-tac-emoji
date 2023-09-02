@@ -1,4 +1,4 @@
-import { MultiPlayerBoard, Result } from ".";
+import { MultiPlayerBoard, MultiPlayerResult } from ".";
 import { useGameStore } from "../../util/useGameStore";
 
 export default function MultiPlayer() {
@@ -7,7 +7,7 @@ export default function MultiPlayer() {
   return (
     <>
       {gameNavigate === "multi-player" && <MultiPlayerBoard />}
-      {gameNavigate === "multi-player-result" && <Result />}
+      {gameNavigate === "multi-player-result" && <MultiPlayerResult />}
     </>
   );
 }

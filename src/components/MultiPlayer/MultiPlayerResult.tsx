@@ -1,10 +1,10 @@
 import { styled } from "styled-components";
 import { useGameStore } from "../../util/useGameStore";
 import useMultiplayerStore from "../../util/useMultiplayerStore";
-import { Button, Card } from "../SinglePlayer/Result/Styles";
+import { Button, Card } from "../SinglePlayer/Styles";
 import { ButtonsContainer } from "../Start/Styles";
 
-export default function Result() {
+export default function MultilayerResult() {
   const { multiplayerWinner, reset } = useMultiplayerStore();
   const { setNavigate, setGameNavigate } = useGameStore();
 

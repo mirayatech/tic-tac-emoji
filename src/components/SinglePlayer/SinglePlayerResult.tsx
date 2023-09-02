@@ -1,8 +1,8 @@
-import { useGameStore, useSinglePlayer } from "../../../util";
-import { ButtonsContainer } from "../../Start/Styles";
+import { useGameStore, useSinglePlayer } from "../../util";
+import { ButtonsContainer } from "../Start/Styles";
 import { Button, Card, Emoji, Title } from "./Styles";
 
-export default function Result() {
+export default function SinglePlayerResult() {
   const { gameResult, reset } = useSinglePlayer();
   const { setNavigate, setGameNavigate } = useGameStore();
 
