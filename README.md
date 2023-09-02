@@ -47,6 +47,9 @@ This is why I decided to create this project again, this time using React and Ty
 
 The project could be improved by adding sound effects and background music. I think it would also be cool to highlight the three rows that the user got to win, to show at the end who won.
 
+## 🐛 Bug
+- The game doesn't work on Android
+
 ## 🚦 Running the Project
 
 To run the project in your local environment, follow these steps:
