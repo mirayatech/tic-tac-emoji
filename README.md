@@ -1,14 +1,15 @@
-## 👾 XO Rumble
+## 😛 XO Rumble
 
-A tic-tac-toe game that offers both multiplayer and single-player modes.
+A tic-tac-toe game based on emojis that offers both multiplayer and single-player modes. Every time a user plays in single or multiplayer mode, there are always new emojis. In single-player mode, there's a choice between hard and easy modes for the bot. I bet you can't beat the hard mode of the bot! 😉
 
 ## 1️⃣ Single Player
 
 In this mode, you will play against a computer bot.
 
 - Click on the 'Single Player' button to play.
-- Choose a player, either "X" or "O".
-- The player who gets 3 in a row first wins - the winning row will glow green.
+- Choose a player; there are always new emojis appearing whenever you visit the select player page.
+- Then, choose the game mode you want to play with the bot - Hard or Easy.
+- The player who gets 3 in a row first wins.
 - Whether it's a win, loss, or a draw, a modal displaying the result appears once the game is over. You'll then see two buttons:
   - 'Replay' button to play again.
   - 'Home' button to return to the main menu.
@@ -18,8 +19,8 @@ In this mode, you will play against a computer bot.
 
 In this mode, you can play with another person sitting next to you.
 
-- The first player is automatically "X", and the second is "O".
-- The player who gets 3 in a row first wins; the winning row will glow green.
+- The first player is automatically selected, and the second player automatically gets their own emoji (random for every game round).
+- The player who gets 3 in a row first wins.
 - Whether it's a win, loss, or a draw, a modal displaying the result appears once the game is over. You'll then see two buttons:
   - 'Replay' button to play again.
   - 'Home' button to return to the main menu.
@@ -32,16 +33,17 @@ In this mode, you can play with another person sitting next to you.
 - `TypeScript`
 - `Zustand`
 - `Styled Components`
+- `Framer Motion`
 
 ## 💡 Idea
 
-Project: https://github.com/mirayatech/Tic-Tac-Toe
+Project: [https://github.com/mirayatech/Tic-Tac-Toe](https://github.com/mirayatech/Tic-Tac-Toe)
 
-I've built a tic-tac-toe game before using HTML, CSS, and JavaScript, which was single-player only. I've always wanted to expand the project by adding multiplayer and making it more interactive. This is why I decided to create this project again, this time using React and TypeScript.
+I've built a tic-tac-toe game before using HTML, CSS, and JavaScript, which was single-player only. I've always wanted to expand the project by adding multiplayer and making it more interactive. Emojis are something I've also always wanted since I've never seen a tic-tac-toe with emojis. This is why I decided to create this project again, this time using React and TypeScript. I also had in mind that every time I've played a tic-tac-toe game online, I found most of them boring, that's why with the emojis.
 
 ## 🤔 How Can It Be Improved?
 
-The project could be improved by adding sound effects and background music. The transitions between pages could also be smoother.
+The project could be improved by adding sound effects and background music. I think it would also be cool to highlight the three rows that the user got to win, to show at the end who won.
 
 ## 🚦 Running the Project
 
@@ -50,14 +52,8 @@ To run the project in your local environment, follow these steps:
 1. Clone the repository to your local machine.
 2. Run `npm install` or `yarn` in the project directory to install the required dependencies.
 3. Run `npm run start` or `yarn start` to get the project started.
-4. Open http://localhost:5173 (or the address shown in your console) in your web browser to view the app.
+4. Open [http://localhost:5173](http://localhost:5173) (or the address shown in your console) in your web browser to view the app.
 
 ## 📸 - Demo Images
 
-![Screenshot 2023-07-30 at 11 00 21](https://github.com/mirayatech/XO-Rumble/assets/71933266/9e377a16-ca73-4a5f-b7d6-35eaaf843f83)
-![Screenshot 2023-07-30 at 11 00 29](https://github.com/mirayatech/XO-Rumble/assets/71933266/c04fb132-2e4c-48d2-931c-62156574f7be)
-![Screenshot 2023-07-30 at 11 07 02](https://github.com/mirayatech/XO-Rumble/assets/71933266/4113f044-42c7-47d8-8a6d-bb19ac5b32ee)
-![Screenshot 2023-07-30 at 11 06 35](https://github.com/mirayatech/XO-Rumble/assets/71933266/378e9b48-efc8-43e8-9358-fb70e9673965)
-![Screenshot 2023-07-30 at 10 59 52](https://github.com/mirayatech/XO-Rumble/assets/71933266/a9f4fb57-b6d0-4d64-b2dc-d3c2dd361609)
-![Screenshot 2023-07-30 at 11 03 04](https://github.com/mirayatech/XO-Rumble/assets/71933266/5db969a7-7cfc-4b4b-b27a-dc962618337f)
-![Screenshot 2023-07-30 at 11 00 59](https://github.com/mirayatech/XO-Rumble/assets/71933266/1ad3a6db-0ba8-4d41-a098-8666cdf5c1c4)
+Coming soon...
