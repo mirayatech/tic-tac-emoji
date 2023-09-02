@@ -12,6 +12,7 @@ import {
 } from "./Styles";
 import { getRandomEmoji } from "../../util";
 import { useState, useEffect } from "react";
+import { TypeAnimation } from "react-type-animation";
 
 export default function Start() {
   const { setNavigate, setGameNavigate } = useGameStore();
@@ -57,7 +58,13 @@ export default function Start() {
         <Emoji>{emoji}</Emoji>
       </Square>
       <Title>
-        Tic Tac <span>Emoji</span>
+        Tic Tac&nbsp;
+        <TypeAnimation
+          sequence={["Toe", 2000, "Emoji", 2000]}
+          wrapper="span"
+          speed={5}
+          repeat={Infinity}
+        />
       </Title>
       <ButtonsContainer>
         <Button onClick={handleOnSinglePlayerClick}>Single Player</Button>

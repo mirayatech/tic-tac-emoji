@@ -2,8 +2,10 @@ import { motion } from "framer-motion";
 import styled from "styled-components";
 
 export const Wrapper = styled(motion.div)`
-  height: 100%;
-  gap: 20px;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
 `;
 
 export const Square = styled(motion.div)`
@@ -25,15 +27,9 @@ export const Emoji = styled(motion.span)`
 
 export const Title = styled(motion.h1)`
   color: #3f3f3f;
-  font-size: 50px;
+  font-size: 40px;
   padding: 30px 0;
-  font-weight: 700;
   font-weight: 800;
-  font-weight: 900;
-
-  span {
-    color: white;
-  }
 
   @media screen and (min-width: 500px) {
     font-size: 60px;
@@ -45,7 +41,7 @@ export const ButtonsContainer = styled.div`
   display: flex;
   align-items: center;
   flex-direction: column;
-
+  width: 400px;
   @media screen and (min-width: 500px) {
     flex-direction: row;
     justify-content: center;
@@ -84,7 +80,6 @@ export const Button = styled.button<{ $isMulti?: boolean }>`
 export const Footer = styled.footer`
   text-align: center;
   padding-top: 60px;
-  margin-top: auto;
 `;
 
 export const FooterLink = styled.a`
