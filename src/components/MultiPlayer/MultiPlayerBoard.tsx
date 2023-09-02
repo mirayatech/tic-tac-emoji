@@ -13,8 +13,6 @@ export default function MultiPlayerBoard() {
     emojiX,
     emojiO,
     multiplayerPlayerXIsNext,
-    saveGame,
-    clearGame,
   } = useMultiplayerStore();
 
   const isDraw = multiplayerBoard.every((square) => square !== null);
@@ -30,13 +28,6 @@ export default function MultiPlayerBoard() {
       }, 500);
     }
   }, [multiplayerWinner, isDraw]);
-
-  useEffect(() => {
-    saveGame();
-    return () => {
-      clearGame();
-    };
-  }, [saveGame, clearGame]);
 
   return (
     <motion.div
