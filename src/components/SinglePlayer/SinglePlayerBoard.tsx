@@ -47,12 +47,12 @@ export default function SinglePlayerBoard() {
       }
       setTimeout(() => {
         setGameNavigate("single-player-result");
-      }, 2000);
+      }, 1500);
     } else if (!newBoard.includes(null)) {
       setTimeout(() => {
         setGameResult("draw");
         setGameNavigate("single-player-result");
-      }, 2000);
+      }, 1500);
     }
   };
 
@@ -69,7 +69,7 @@ export default function SinglePlayerBoard() {
             );
             handleClick(emptyCells[randomIndex]);
           }
-        }, 1500);
+        }, 1100);
       };
       simulateEasyRobotMove();
     }
@@ -102,7 +102,7 @@ export default function SinglePlayerBoard() {
           );
           handleClick(emptyCells[randomIndex]);
         }
-      }, 1500);
+      }, 1100);
     };
     simulateHardRobotMove();
   };

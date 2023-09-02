@@ -21,7 +21,7 @@ export default function MultiPlayerBoard() {
     if (multiplayerWinner) {
       setTimeout(() => {
         setGameNavigate("multi-player-result");
-      }, 2000);
+      }, 1100);
     } else if (isDraw) {
       setTimeout(() => {
         setGameNavigate("multi-player-result");
