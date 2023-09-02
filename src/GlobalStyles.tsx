@@ -34,6 +34,7 @@ body {
   color: ${colors.black};
   justify-content: center;
   align-items: center;
+  user-select: none;
  
 }
 
