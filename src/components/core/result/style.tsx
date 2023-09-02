@@ -72,7 +72,7 @@ export const ButtonsContainer = styled.div`
   gap: 10px;
   display: flex;
   align-items: center;
-  flex-direction: column;
+  flex-direction: column-reverse;
 
   @media screen and (min-width: 500px) {
     flex-direction: row;

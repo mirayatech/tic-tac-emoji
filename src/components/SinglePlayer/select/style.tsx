@@ -60,18 +60,6 @@ export const EmojiButton = styled.div<{ $selected: boolean }>`
   transition: transform 0.3s ease, filter 0.3s ease;
 `;
 
-export const Buttons = styled.div`
-  gap: 15px;
-  margin-top: 20px;
-  display: flex;
-  justify-content: center;
-  flex-direction: column-reverse;
-
-  @media screen and (min-width: 500px) {
-    flex-direction: row;
-  }
-`;
-
 export const EmojiTextStyled = styled.span<{ color: string }>`
   color: ${(props) => props.color};
   font-size: 24px;
