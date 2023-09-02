@@ -15,7 +15,7 @@ export const StyledSpinner = styled.div`
 
   .spin {
     z-index: 1000;
-    color: #78aaff;
+    color: #ffffff;
     font-size: 4rem;
     position: relative;
     animation: spin 0.6s linear infinite;
