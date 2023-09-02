@@ -18,8 +18,14 @@ export default function MultiPlayerBoard() {
   const isDraw = multiplayerBoard.every((square) => square !== null);
 
   useEffect(() => {
-    if (multiplayerWinner || isDraw) {
-      setGameNavigate("multi-player-result");
+    if (multiplayerWinner) {
+      setTimeout(() => {
+        setGameNavigate("multi-player-result");
+      }, 2000);
+    } else if (isDraw) {
+      setTimeout(() => {
+        setGameNavigate("multi-player-result");
+      }, 500);
     }
   }, [multiplayerWinner, isDraw]);
 

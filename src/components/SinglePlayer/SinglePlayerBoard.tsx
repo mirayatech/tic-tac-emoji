@@ -44,10 +44,14 @@ export default function SinglePlayerBoard() {
       } else {
         setGameResult("lose");
       }
-      setGameNavigate("single-player-result");
+      setTimeout(() => {
+        setGameNavigate("single-player-result");
+      }, 2000);
     } else if (!newBoard.includes(null)) {
-      setGameResult("draw");
-      setGameNavigate("single-player-result");
+      setTimeout(() => {
+        setGameResult("draw");
+        setGameNavigate("single-player-result");
+      }, 2000);
     }
   };
 

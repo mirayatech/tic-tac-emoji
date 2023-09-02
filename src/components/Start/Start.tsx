@@ -75,7 +75,7 @@ export default function Start() {
           href="https://github.com/mirayatech/tic-tac-emoji"
           target="_blank"
         >
-          Created by Miraya
+          Made with love by Miraya 🤍
         </FooterLink>
       </Footer>
     </Wrapper>
