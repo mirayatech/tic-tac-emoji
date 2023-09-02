@@ -40,7 +40,7 @@ export default function SelectBox() {
         icon: "🔮",
       });
     }
-    setGameNavigate("single-player-board");
+    setGameNavigate("single-player-mode");
   };
 
   return (
