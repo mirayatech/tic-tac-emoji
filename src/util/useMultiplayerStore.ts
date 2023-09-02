@@ -31,7 +31,7 @@ const useMultiplayerStore = create<MultiplayerStateType>((set) => {
     ...initialState,
     multiplayerHandleClick: (index) =>
       set((state: any) => {
-        // for now, we'll just ignore the type error
+        // @ts-ignore - TODO: fix this
         if (state.multiplayerWinner || state.multiplayerBoard[index]) {
           return state;
         }
@@ -40,7 +40,8 @@ const useMultiplayerStore = create<MultiplayerStateType>((set) => {
           ? state.emojiX
           : state.emojiO;
 
-        newBoard[index] = emoji as any; // for now, we'll just ignore the type error
+        // @ts-ignore - TODO: fix this
+        newBoard[index] = emoji;
 
         const winner = checkMultiPlayerWinner(newBoard);
 
@@ -64,19 +65,6 @@ const useMultiplayerStore = create<MultiplayerStateType>((set) => {
         emojiX: getRandomEmoji(),
         emojiO: getRandomEmoji(),
       });
-    },
-    saveGame: () => {
-      const stateToSave = {
-        multiplayerBoard: initialState.multiplayerBoard,
-        multiplayerPlayerXIsNext: initialState.multiplayerPlayerXIsNext,
-        multiplayerWinner: initialState.multiplayerWinner,
-        emojiX: initialState.emojiX,
-        emojiO: initialState.emojiO,
-      };
-      localStorage.setItem(localStorageKey, JSON.stringify(stateToSave));
-    },
-    clearGame: () => {
-      localStorage.removeItem(localStorageKey);
     },
   };
 });
