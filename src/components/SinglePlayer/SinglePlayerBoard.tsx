@@ -3,6 +3,7 @@ import { useSinglePlayer } from "../../util/useSinglePlayerStore";
 import { useGameStore } from "../../util/useGameStore";
 import { calculateSinglePlayerWinner, emojis } from "../../util";
 import { Banner, Board } from "../core";
+import { motion } from "framer-motion";
 
 export default function SinglePlayerBoard() {
   const { playerSign, board, setBoard, setGameResult } = useSinglePlayer();
@@ -65,9 +66,14 @@ export default function SinglePlayerBoard() {
   };
 
   return (
-    <>
+    <motion.div
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      transition={{ duration: 0.5 }}
+      exit={{ opacity: 0 }}
+    >
       <Banner isPlayerXNext={isPlayerXNext} playerSign={playerSign} />
       <Board squares={board} onClick={handleClick} />
-    </>
+    </motion.div>
   );
 }
