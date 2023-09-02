@@ -12,7 +12,7 @@ import {
 import { toast } from "react-hot-toast";
 import { useSinglePlayer } from "../../../util/useSinglePlayerStore";
 import { emojis, getRandomEmoji } from "../../../util";
-import { Button } from "../Styles";
+import { Button } from "../../core/result/style";
 
 export default function SelectBox() {
   const { setPlayerSign } = useSinglePlayer();

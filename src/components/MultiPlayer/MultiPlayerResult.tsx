@@ -1,55 +1,19 @@
-import { styled } from "styled-components";
 import { useGameStore } from "../../util/useGameStore";
 import useMultiplayerStore from "../../util/useMultiplayerStore";
-import { Button, Card } from "../SinglePlayer/Styles";
-import { ButtonsContainer } from "../Start/Styles";
+import { Result } from "../core";
 
-export default function MultilayerResult() {
+export default function MultiplayerResult() {
   const { multiplayerWinner, reset } = useMultiplayerStore();
   const { setNavigate, setGameNavigate } = useGameStore();
 
-  const handleOnHomeClick = () => {
-    reset();
-    setNavigate("start");
-    setGameNavigate("");
-  };
-
-  const handleOnResetClick = () => {
-    reset();
-    setGameNavigate("multi-player");
-  };
-
-  const Title = styled.h1`
-    display: flex;
-    gap: 10px;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    padding: 0 0 60px;
-
-    span {
-      font-size: 40px;
-    }
-  `;
-
   return (
-    <Card>
-      <div>
-        {multiplayerWinner === "draw" ? (
-          <Title>It's a draw!</Title>
-        ) : (
-          <Title>
-            Player <span> {multiplayerWinner}</span> Wins!
-          </Title>
-        )}
-        <ButtonsContainer>
-          <Button onClick={handleOnResetClick}>Reset</Button>
-
-          <Button onClick={handleOnHomeClick} $isMulti={true}>
-            Home
-          </Button>
-        </ButtonsContainer>
-      </div>
-    </Card>
+    <Result
+      multiplayerWinner={multiplayerWinner}
+      reset={reset}
+      setNavigate={setNavigate}
+      setGameNavigate={setGameNavigate}
+      isMultiplayer={true}
+      gameResult={null}
+    />
   );
 }
