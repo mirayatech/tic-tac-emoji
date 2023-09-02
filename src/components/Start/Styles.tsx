@@ -1,6 +1,5 @@
 import { motion } from "framer-motion";
 import styled from "styled-components";
-import { colors } from "../../assets/variables";
 
 export const Wrapper = styled(motion.div)`
   height: 100%;
@@ -25,8 +24,16 @@ export const Emoji = styled(motion.span)`
 `;
 
 export const Title = styled(motion.h1)`
+  color: #3f3f3f;
   font-size: 50px;
   padding: 30px 0;
+  font-weight: 700;
+  font-weight: 800;
+  font-weight: 900;
+
+  span {
+    color: white;
+  }
 
   @media screen and (min-width: 500px) {
     font-size: 60px;
@@ -48,14 +55,14 @@ export const ButtonsContainer = styled.div`
 export const Button = styled.button<{ $isMulti?: boolean }>`
   height: 50px;
   width: 100%;
-  font-weight: bold;
-  color: ${({ $isMulti }) => ($isMulti ? `#4d4d4d` : `  white`)};
+  font-weight: 600;
+  color: #3f3f3f;
   border: none;
   font-size: 1.2rem;
   transition: all 200ms ease-in;
   padding: 5px;
   border-radius: 10px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
 
   &:hover {
     opacity: 0.9;
@@ -66,10 +73,7 @@ export const Button = styled.button<{ $isMulti?: boolean }>`
     border-bottom-width: 2px;
   }
 
-  text-shadow: ${({ $isMulti }) => ($isMulti ? "#232229" : `0px -2px #232229`)};
-  background: ${({ $isMulti }) => ($isMulti ? "white" : "#3f3f3f")};
-  border-bottom: ${({ $isMulti }) =>
-    $isMulti ? `4px solid #b7b7b7` : `4px solid #232229`};
+  background: white;
 
   @media screen and (max-width: 500px) {
     font-size: 1.05rem;
@@ -79,12 +83,13 @@ export const Button = styled.button<{ $isMulti?: boolean }>`
 
 export const Footer = styled.footer`
   text-align: center;
-  padding: 30px 0;
+  padding-top: 60px;
   margin-top: auto;
 `;
 
 export const FooterLink = styled.a`
-  color: ${colors.grey};
+  color: #3f3f3f;
+  text-decoration: underline;
 
   &:hover {
     text-decoration: underline;

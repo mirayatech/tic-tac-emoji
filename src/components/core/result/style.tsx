@@ -23,6 +23,7 @@ export const Emoji = styled.span`
 `;
 
 export const Title = styled.h1`
+  font-weight: 700;
   text-align: center;
   margin-bottom: 30px;
   line-height: 1.8;

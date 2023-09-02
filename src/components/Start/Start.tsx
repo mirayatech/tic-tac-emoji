@@ -60,9 +60,7 @@ export default function Start() {
         Tic Tac <span>Emoji</span>
       </Title>
       <ButtonsContainer>
-        <Button onClick={handleOnSinglePlayerClick} $isMulti={true}>
-          Single Player
-        </Button>
+        <Button onClick={handleOnSinglePlayerClick}>Single Player</Button>
         <Button onClick={handleOnClick}>Multi Player</Button>
       </ButtonsContainer>
       <Footer>

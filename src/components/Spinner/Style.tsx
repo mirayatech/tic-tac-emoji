@@ -1,5 +1,4 @@
 import { styled } from "styled-components";
-import { colors } from "../../assets/variables";
 
 export const StyledSpinner = styled.div`
   top: 0;
@@ -16,7 +15,7 @@ export const StyledSpinner = styled.div`
 
   .spin {
     z-index: 1000;
-    color: ${colors.yellow};
+    color: #78aaff;
     font-size: 4rem;
     position: relative;
     animation: spin 0.6s linear infinite;

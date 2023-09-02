@@ -1,8 +1,7 @@
 import { createGlobalStyle } from "styled-components";
 import { colors } from "./assets/variables";
 
-export const GlobalStyle = createGlobalStyle`@import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,300;0,400;0,500;0,600;0,700;0,900;1,400&display=swap");
- 
+export const GlobalStyle = createGlobalStyle`
 *,
 *::before,
 *::after {
@@ -11,8 +10,7 @@ export const GlobalStyle = createGlobalStyle`@import url("https://fonts.googleap
 
 * {
   margin: 0;
-  font-family: "Roboto", sans-serif;
-}
+font-family: 'Poppins', sans-serif;}
 
 html,
 body {
@@ -25,8 +23,8 @@ body {
   line-height: 1.5;
   overflow: hidden;
    background-image: linear-gradient(
-   160deg, #8bcfff,
-#AA8DFE 80%
+   160deg, #69a0ff,
+#b8d2ff 80%
   );
   -webkit-font-smoothing: antialiased;
   display: flex;
