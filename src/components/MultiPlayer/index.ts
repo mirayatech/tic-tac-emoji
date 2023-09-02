@@ -1,4 +1,4 @@
 import { lazy } from "react";
 
-export const MultiPlayerResult = lazy(() => import("./multiplayerResult"));
-export const MultiPlayerBoard = lazy(() => import("./multiplayerBoard"));
+export const MultiPlayerResult = lazy(() => import("./MultiPlayerResult"));
+export const MultiPlayerBoard = lazy(() => import("./MultiPlayerBoard"));
