@@ -2,8 +2,7 @@ import { useEffect } from "react";
 import { useGameStore } from "../../util/useGameStore";
 import Result from "./Result";
 import useMultiplayerStore from "../../util/useMultiplayerStore";
-import Board from "../core/board/board";
-import Banner from "../core/banner/banner";
+import { Banner, Board } from "../core";
 
 export default function MultiPlayerBoard() {
   const { setGameNavigate, gameNavigate } = useGameStore();

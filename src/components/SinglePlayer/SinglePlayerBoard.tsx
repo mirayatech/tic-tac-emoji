@@ -2,8 +2,7 @@ import { useState, useEffect } from "react";
 import { useSinglePlayer } from "../../util/useSinglePlayerStore";
 import { useGameStore } from "../../util/useGameStore";
 import { calculateSinglePlayerWinner, emojis } from "../../util";
-import Board from "../core/board/board";
-import Banner from "../core/banner/banner";
+import { Banner, Board } from "../core";
 
 export default function SinglePlayerBoard() {
   const { playerSign, board, setBoard, setGameResult } = useSinglePlayer();
