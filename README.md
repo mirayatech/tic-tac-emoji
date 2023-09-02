@@ -7,12 +7,12 @@ A tic-tac-toe game based on emojis that offers both multiplayer and single-playe
 In this mode, you will play against a computer bot.
 
 - Click on the 'Single Player' button to play.
-- Choose a player; there are always new emojis appearing whenever you visit the select player page.
+- Choose a player - there are always new emojis appearing whenever you visit the select player page.
 - Then, choose the game mode you want to play with the bot - Hard or Easy.
 - The player who gets 3 in a row first wins.
 - Whether it's a win, loss, or a draw, a modal displaying the result appears once the game is over. You'll then see two buttons:
-  - 'Replay' button to play again.
-  - 'Home' button to return to the main menu.
+  - **Replay'** button to play again.
+  - **Home** button to return to the main menu.
 - If you close the browser or leave the page and come back, you'll resume the game from where you left off.
 
 ## 2️⃣ Multiplayer (coming soon)
@@ -39,7 +39,9 @@ In this mode, you can play with another person sitting next to you.
 
 Project: [https://github.com/mirayatech/Tic-Tac-Toe](https://github.com/mirayatech/Tic-Tac-Toe)
 
-I've built a tic-tac-toe game before using HTML, CSS, and JavaScript, which was single-player only. I've always wanted to expand the project by adding multiplayer and making it more interactive. Emojis are something I've also always wanted since I've never seen a tic-tac-toe with emojis. This is why I decided to create this project again, this time using React and TypeScript. I also had in mind that every time I've played a tic-tac-toe game online, I found most of them boring, that's why with the emojis.
+I've built a tic-tac-toe game before using HTML, CSS, and JavaScript, which was single-player only. I've always wanted to expand the project by adding multiplayer and making it more interactive. Emojis are something I've also always wanted since I've never seen a tic-tac-toe with emojis.
+
+This is why I decided to create this project again, this time using React and TypeScript. I also had in mind that every time I've played a tic-tac-toe game online, I found most of them boring, that's why with the emojis.
 
 ## 🤔 How Can It Be Improved?
 
