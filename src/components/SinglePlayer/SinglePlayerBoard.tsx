@@ -2,8 +2,8 @@ import { useState, useEffect } from "react";
 import { useSinglePlayer } from "../../util/useSinglePlayerStore";
 import { useGameStore } from "../../util/useGameStore";
 import { calculateSinglePlayerWinner, emojis } from "../../util";
-import { PlayerBanner } from "./PlayerBanner/PlayerBanner";
 import Board from "../core/board/board";
+import Banner from "../core/banner/banner";
 
 export default function SinglePlayerBoard() {
   const { playerSign, board, setBoard, setGameResult } = useSinglePlayer();
@@ -67,7 +67,7 @@ export default function SinglePlayerBoard() {
 
   return (
     <>
-      <PlayerBanner isPlayerXNext={isPlayerXNext} />
+      <Banner isPlayerXNext={isPlayerXNext} playerSign={playerSign} />
       <Board squares={board} onClick={handleClick} />
     </>
   );

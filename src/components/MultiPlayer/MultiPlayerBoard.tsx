@@ -1,9 +1,9 @@
 import { useEffect } from "react";
 import { useGameStore } from "../../util/useGameStore";
 import Result from "./Result";
-import { PlayerBanner } from "./PlayerBanner";
 import useMultiplayerStore from "../../util/useMultiplayerStore";
 import Board from "../core/board/board";
+import Banner from "../core/banner/banner";
 
 export default function MultiPlayerBoard() {
   const { setGameNavigate, gameNavigate } = useGameStore();
@@ -28,7 +28,7 @@ export default function MultiPlayerBoard() {
     <>
       {gameNavigate === "multi-player-result" && <Result />}
 
-      <PlayerBanner
+      <Banner
         isPlayerXNext={multiplayerPlayerXIsNext}
         playerSign={emojiX}
         otherPlayerSign={emojiO}
