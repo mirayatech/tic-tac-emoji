@@ -39,5 +39,6 @@ export const BoxBase = styled(motion.section)`
 `;
 
 export const Box = styled(BoxBase)`
+  cursor: pointer;
   background-color: #dedede;
 `;
