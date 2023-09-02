@@ -1,6 +1,8 @@
 import create from "zustand";
 import { checkMultiPlayerWinner, getRandomEmoji } from ".";
 
+const localStorageKey = "multiplayer-game-data";
+
 type MultiplayerStateType = {
   multiplayerBoard: ("X" | "O" | null)[];
   multiplayerPlayerXIsNext: boolean;
@@ -9,20 +11,27 @@ type MultiplayerStateType = {
   reset: () => void;
   emojiX: string;
   emojiO: string;
+  saveGame: () => void;
+  clearGame: () => void;
 };
 
 const useMultiplayerStore = create<MultiplayerStateType>((set) => {
-  const emojiX = getRandomEmoji();
-  const emojiO = getRandomEmoji();
+  const storedGameData = localStorage.getItem(localStorageKey);
+  const initialState = storedGameData
+    ? JSON.parse(storedGameData)
+    : {
+        multiplayerBoard: Array(9).fill(null),
+        multiplayerPlayerXIsNext: true,
+        multiplayerWinner: null,
+        emojiX: getRandomEmoji(),
+        emojiO: getRandomEmoji(),
+      };
 
   return {
-    multiplayerBoard: Array(9).fill(null),
-    multiplayerPlayerXIsNext: true,
-    multiplayerWinner: null,
-    emojiX,
-    emojiO,
+    ...initialState,
     multiplayerHandleClick: (index) =>
-      set((state) => {
+      set((state: any) => {
+        // for now, we'll just ignore the type error
         if (state.multiplayerWinner || state.multiplayerBoard[index]) {
           return state;
         }
@@ -35,22 +44,40 @@ const useMultiplayerStore = create<MultiplayerStateType>((set) => {
 
         const winner = checkMultiPlayerWinner(newBoard);
 
-        return {
+        const newState = {
+          ...state,
           multiplayerBoard: newBoard,
           multiplayerPlayerXIsNext: !state.multiplayerPlayerXIsNext,
           multiplayerWinner: winner,
-          emojiX: state.emojiX,
-          emojiO: state.emojiO,
         };
+
+        localStorage.setItem(localStorageKey, JSON.stringify(newState));
+
+        return newState;
       }),
-    reset: () =>
-      set(() => ({
+    reset: () => {
+      localStorage.removeItem(localStorageKey);
+      set({
         multiplayerBoard: Array(9).fill(null),
         multiplayerPlayerXIsNext: true,
         multiplayerWinner: null,
         emojiX: getRandomEmoji(),
         emojiO: getRandomEmoji(),
-      })),
+      });
+    },
+    saveGame: () => {
+      const stateToSave = {
+        multiplayerBoard: initialState.multiplayerBoard,
+        multiplayerPlayerXIsNext: initialState.multiplayerPlayerXIsNext,
+        multiplayerWinner: initialState.multiplayerWinner,
+        emojiX: initialState.emojiX,
+        emojiO: initialState.emojiO,
+      };
+      localStorage.setItem(localStorageKey, JSON.stringify(stateToSave));
+    },
+    clearGame: () => {
+      localStorage.removeItem(localStorageKey);
+    },
   };
 });
 
