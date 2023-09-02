@@ -8,7 +8,7 @@ import {
   StyledWrapper,
   PlayerCard,
   Buttons,
-} from "./Styles";
+} from "./style";
 import { toast } from "react-hot-toast";
 import { useSinglePlayer } from "../../../util/useSinglePlayerStore";
 import { emojis, getRandomEmoji } from "../../../util";
