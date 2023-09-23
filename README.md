@@ -2,7 +2,7 @@
 
 A tic-tac-toe game based on emojis that offers both multiplayer and single-player modes. Every time a user plays in single or multiplayer mode, there are always new emojis. In single-player mode, there's a choice between hard and easy modes for the bot. I bet you can't beat the hard mode of the bot! 😉
 
-## 1️⃣ Single Player
+## 1️⃣ Single Player 
 
 In this mode, you will play against a computer bot.
 
