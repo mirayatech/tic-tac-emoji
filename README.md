@@ -4,7 +4,7 @@ A tic-tac-toe game based on emojis that offers both multiplayer and single-playe
 
 ## 1️⃣ Single Player 
 
-In this mode, you will play against a computer bot.
+In this mode, you will play against a computer bot. 
 
 - Click on the 'Single Player' button to play.
 - Choose a player - there are always new emojis appearing whenever you visit the select player page.
