@@ -15,7 +15,7 @@ In this mode, you will play against a computer bot.
   - **Home** button to return to the main menu.
 - If you close the browser or leave the page and come back, you'll resume the game from where you left off.
 
-## 2️⃣ Multiplayer (coming soon)
+## 2️⃣ Multiplayer 
 
 In this mode, you can play with another person sitting next to you.
 
