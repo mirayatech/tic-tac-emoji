@@ -63,4 +63,3 @@ To run the project in your local environment, follow these steps:
 
 <img src='https://github.com/mirayatech/tic-tac-emoji/assets/71933266/3ccda378-3338-4e13-ad89-0b7d72029a8f' width="100%"/>
 
-Coming soon...
